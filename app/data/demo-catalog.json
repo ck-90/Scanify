@@ -1,0 +1,618 @@
+{
+  "shopDomain": "streakify-app-be.myshopify.com",
+  "currencyCode": "USD",
+  "snapshotAt": "2026-11-16T21:15:01.914Z",
+  "source": "shopify-admin-export",
+  "products": [
+    {
+      "id": "gid://shopify/Product/10347289411800",
+      "title": "Mascarilla Nocturna Restauradora Cica & Avena",
+      "handle": "mascarilla-nocturna-restauradora-cica-avena",
+      "description": "Tratamiento Nocturno Rehidratante y FortalecedorMascarilla envolvente sin aclarado diseñada para recuperar pieles estresadas, expuestas al sol o a tratamientos agresivos. Combina Avena Coloidal, Centella y Ácido Poliglutámico. Beneficios: Reduce enrojecimiento durante la noche, despierta con piel...",
+      "imageUrl": null,
+      "price": {
+        "amount": 440,
+        "currencyCode": "USD"
+      },
+      "variantId": "gid://shopify/ProductVariant/52839315112152",
+      "variantTitle": "75 ml",
+      "availableForSale": true,
+      "goals": [
+        "maintenance"
+      ],
+      "skinTypes": [
+        "dry",
+        "sensitive"
+      ],
+      "routineStep": "mascarilla",
+      "tags": [
+        "meta:calma",
+        "noche",
+        "paso:mascarilla",
+        "piel:deshidratada",
+        "piel:sensible",
+        "skincare",
+        "streakify"
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/10347289280728",
+      "title": "Peeling Químico Semanal AHA 10% + BHA 2%",
+      "handle": "peeling-quimico-semanal-aha-10-bha-2",
+      "description": "Tratamiento Exfoliante Semanal de ResurfacingSolución exfoliante de alta concentración con Ácidos Glicólico, Láctico y Tartárico (10% AHA) combinados con Ácido Salicílico (2% BHA). Promueve una renovación cutánea visible. Beneficios: Elimina células muertas, limpia poros a profundidad y unifica m...",
+      "imageUrl": null,
+      "price": {
+        "amount": 520,
+        "currencyCode": "USD"
+      },
+      "variantId": "gid://shopify/ProductVariant/52839314948312",
+      "variantTitle": "30 ml",
+      "availableForSale": true,
+      "goals": [
+        "tone_uniformity",
+        "visible_texture"
+      ],
+      "skinTypes": [
+        "oily",
+        "combination"
+      ],
+      "routineStep": "exfoliacion",
+      "tags": [
+        "meta:luminosidad",
+        "meta:textura",
+        "paso:exfoliacion",
+        "piel:grasa",
+        "piel:mixta",
+        "semanal",
+        "skincare",
+        "streakify"
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/10347288887512",
+      "title": "Protector Solar Hidratante Efecto Glow FPS 50+",
+      "handle": "protector-solar-hidratante-efecto-glow-fps-50",
+      "description": "Fotoprotección Hidratante con Acabado Jugoso LuminosoCrema solar fluida con triple ácido hialurónico y extracto de té verde que hidrata en profundidad y aporta un brillo saludable natural sin sensación pegajosa. Beneficios: Alta protección solar con efecto buena cara, hidrata durante todo el día....",
+      "imageUrl": null,
+      "price": {
+        "amount": 510,
+        "currencyCode": "USD"
+      },
+      "variantId": "gid://shopify/ProductVariant/52839314391256",
+      "variantTitle": "50 ml",
+      "availableForSale": true,
+      "goals": [
+        "hydration",
+        "tone_uniformity"
+      ],
+      "skinTypes": [
+        "dry"
+      ],
+      "routineStep": "proteccion",
+      "tags": [
+        "dia",
+        "meta:hidratacion",
+        "meta:luminosidad",
+        "paso:proteccion",
+        "piel:seca",
+        "skincare",
+        "streakify"
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/10347288789208",
+      "title": "Protector Solar Gel Toque Seco Invisible FPS 50+",
+      "handle": "protector-solar-gel-toque-seco-invisible-fps-50",
+      "description": "Protector Solar Toque Seco Regulador de GrasaGel ligero invisible con filtros fotoestables de última generación y microesferas de sílice matificante. Proporciona máxima protección solar con sensación cero grasa. Beneficios: Acabado mate impecable, resistente al agua y sudor, no pica en los ojos. ...",
+      "imageUrl": null,
+      "price": {
+        "amount": 490,
+        "currencyCode": "USD"
+      },
+      "variantId": "gid://shopify/ProductVariant/52839314129112",
+      "variantTitle": "50 ml",
+      "availableForSale": true,
+      "goals": [
+        "shine_control"
+      ],
+      "skinTypes": [
+        "oily",
+        "combination"
+      ],
+      "routineStep": "proteccion",
+      "tags": [
+        "dia",
+        "meta:antibrillos",
+        "paso:proteccion",
+        "piel:grasa",
+        "piel:mixta",
+        "skincare",
+        "streakify"
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/10347288690904",
+      "title": "Protector Solar Facial Fluido Mineral FPS 50+",
+      "handle": "protector-solar-facial-fluido-mineral-fps-50",
+      "description": "Fotoprotección Mineral de Amplio Espectro UVA / UVB / Luz AzulFluido 100% físico con Óxido de Zinc micronizado no nano. Fórmula invisible que no deja rastro blanco, enriquecida con antioxidantes para prevenir el envejecimiento prematuro. Beneficios: Protección solar muy alta FPS 50+, textura no c...",
+      "imageUrl": null,
+      "price": {
+        "amount": 520,
+        "currencyCode": "USD"
+      },
+      "variantId": "gid://shopify/ProductVariant/52839314030808",
+      "variantTitle": "50 ml",
+      "availableForSale": true,
+      "goals": [
+        "maintenance"
+      ],
+      "skinTypes": [
+        "sensitive",
+        "normal"
+      ],
+      "routineStep": "proteccion",
+      "tags": [
+        "dia",
+        "meta:proteccion",
+        "paso:proteccion",
+        "piel:sensible",
+        "piel:todo-tipo",
+        "skincare",
+        "streakify"
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/10347288658136",
+      "title": "Crema de Noche Reparadora Intensiva",
+      "handle": "crema-de-noche-reparadora-intensiva",
+      "description": "Nutrición y Regeneración Celular NocturnaCrema suntuosa nutritiva con manteca de karité, bakuchiol vegetal y tripéptidos reparadores. Trabaja en sintonía con los ritmos circadianos de la piel para restaurarla del estrés diario. Beneficios: Despierta con la piel descansada, tersa, nutrida y visibl...",
+      "imageUrl": null,
+      "price": {
+        "amount": 540,
+        "currencyCode": "USD"
+      },
+      "variantId": "gid://shopify/ProductVariant/52839313998040",
+      "variantTitle": "50 ml",
+      "availableForSale": true,
+      "goals": [
+        "maintenance"
+      ],
+      "skinTypes": [
+        "normal",
+        "dry"
+      ],
+      "routineStep": "hidratacion",
+      "tags": [
+        "meta:nutricion",
+        "noche",
+        "paso:hidratacion",
+        "piel:madura",
+        "piel:seca",
+        "skincare",
+        "streakify"
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/10347288625368",
+      "title": "Emulsión Hidratante Reparadora Equilibrante",
+      "handle": "emulsion-hidratante-reparadora-equilibrante",
+      "description": "Emulsión Fluida Hidratante y SuavizanteFórmula fluida y confortable de absorción ultra rápida con escualano vegetal, extracto de té verde y betaglucanos. Proporciona el nivel óptimo de agua y nutrición a pieles mixtas. Beneficios: Equilibra zonas secas y zona T grasa, aporta suavidad sedosa. Ingr...",
+      "imageUrl": null,
+      "price": {
+        "amount": 460,
+        "currencyCode": "USD"
+      },
+      "variantId": "gid://shopify/ProductVariant/52839313965272",
+      "variantTitle": "50 ml",
+      "availableForSale": true,
+      "goals": [
+        "maintenance"
+      ],
+      "skinTypes": [
+        "combination",
+        "normal"
+      ],
+      "routineStep": "hidratacion",
+      "tags": [
+        "meta:equilibrio",
+        "paso:hidratacion",
+        "piel:mixta",
+        "piel:normal",
+        "skincare",
+        "streakify"
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/10347288461528",
+      "title": "Crema Hidratante Facial con 5 Ceramidas",
+      "handle": "crema-hidratante-facial-con-5-ceramidas",
+      "description": "Crema Restauradora de Barrera CutáneaEmulsión biomimética rica en lípidos idénticos a los de la piel: 5 ceramidas esenciales (EOP, NP, AP, AS, NS), fitoesfingosina y colesterol. Sellador intensivo de la hidratación sin aroma artificial. Beneficios: Repara la función barrera, previene la pérdida d...",
+      "imageUrl": null,
+      "price": {
+        "amount": 480,
+        "currencyCode": "USD"
+      },
+      "variantId": "gid://shopify/ProductVariant/52839313801432",
+      "variantTitle": "50 ml",
+      "availableForSale": true,
+      "goals": [
+        "maintenance"
+      ],
+      "skinTypes": [
+        "dry"
+      ],
+      "routineStep": "hidratacion",
+      "tags": [
+        "meta:barrera",
+        "paso:hidratacion",
+        "piel:muy-seca",
+        "piel:seca",
+        "sin-fragancia",
+        "skincare",
+        "streakify"
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/10347288395992",
+      "title": "Sérum Ácido Salicílico 2% BHA Clarificante",
+      "handle": "serum-acido-salicilico-2-bha-clarificante",
+      "description": "Tratamiento Antiperfecciones y Puntos NegrosSolución exfoliante liposoluble que penetra dentro del poro para eliminar células muertas acumuladas y exceso de sebo. Enriquecida con extracto de corteza de sauce y ácido hialurónico. Beneficios: Trata brotes activos, reduce puntos negros y previene fu...",
+      "imageUrl": null,
+      "price": {
+        "amount": 480,
+        "currencyCode": "USD"
+      },
+      "variantId": "gid://shopify/ProductVariant/52839313735896",
+      "variantTitle": "30 ml",
+      "availableForSale": true,
+      "goals": [
+        "pore_appearance"
+      ],
+      "skinTypes": [
+        "oily"
+      ],
+      "routineStep": "tratamiento",
+      "tags": [
+        "meta:imperfecciones",
+        "meta:poros",
+        "paso:tratamiento",
+        "piel:grasa",
+        "skincare",
+        "streakify"
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/10347288297688",
+      "title": "Sérum Calmante Centella Asiática & Péptidos",
+      "handle": "serum-calmante-centella-asiatica-peptidos",
+      "description": "Tratamiento SOS para Piel Sensible y RojecesConcentrado reparador enriquecido con los cuatro extractos activos de la centella (madecassoside, asiaticoside, ácido madecásico y asiático) reforzados con un complejo de tripéptidos biomiméticos. Beneficios: Disminuye sensación de ardor, refuerza vasos...",
+      "imageUrl": null,
+      "price": {
+        "amount": 520,
+        "currencyCode": "USD"
+      },
+      "variantId": "gid://shopify/ProductVariant/52839313637592",
+      "variantTitle": "30 ml",
+      "availableForSale": true,
+      "goals": [
+        "maintenance"
+      ],
+      "skinTypes": [
+        "sensitive"
+      ],
+      "routineStep": "tratamiento",
+      "tags": [
+        "meta:calma",
+        "paso:tratamiento",
+        "piel:reactiva",
+        "piel:sensible",
+        "skincare",
+        "streakify"
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/10347288068312",
+      "title": "Sérum Retinol 0.3% Renovador Nocturno",
+      "handle": "serum-retinol-0-3-renovador-nocturno",
+      "description": "Tratamiento Antiedad y Renovación Celular NocturnaRetinol puro microencapsulado al 0.3% suspendido en escualano vegetal nutritivo. Promueve la regeneración celular acelerada sin la sequedad característica de los retinoides convencionales. Beneficios: Suaviza arrugas profundas, mejora firmeza y al...",
+      "imageUrl": null,
+      "price": {
+        "amount": 680,
+        "currencyCode": "USD"
+      },
+      "variantId": "gid://shopify/ProductVariant/52839313506520",
+      "variantTitle": "30 ml",
+      "availableForSale": true,
+      "goals": [
+        "visible_texture"
+      ],
+      "skinTypes": [
+        "normal"
+      ],
+      "routineStep": "tratamiento",
+      "tags": [
+        "meta:antiedad",
+        "meta:textura",
+        "noche",
+        "paso:tratamiento",
+        "piel:madura",
+        "skincare",
+        "streakify"
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/10347287970008",
+      "title": "Sérum Vitamina C 15% Iluminador & Ácido Ferúlico",
+      "handle": "serum-vitamina-c-15-iluminador-acido-ferulico",
+      "description": "Escudo Antioxidante e Iluminador AvanzadoFórmula sinérgica con Ácido L-Ascórbico estabilizado al 15%, Vitamina E pura y Ácido Ferúlico al 0.5%. Neutraliza radicales libres inducidos por radiación solar y contaminación ambiental. Beneficios: Recupera la luminosidad natural, atenúa manchas oscuras ...",
+      "imageUrl": null,
+      "price": {
+        "amount": 650,
+        "currencyCode": "USD"
+      },
+      "variantId": "gid://shopify/ProductVariant/52839313408216",
+      "variantTitle": "30 ml",
+      "availableForSale": true,
+      "goals": [
+        "tone_uniformity"
+      ],
+      "skinTypes": [
+        "normal"
+      ],
+      "routineStep": "tratamiento",
+      "tags": [
+        "meta:antioxidante",
+        "meta:luminosidad",
+        "paso:tratamiento",
+        "piel:todo-tipo",
+        "skincare",
+        "streakify"
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/10347287707864",
+      "title": "Sérum Ácido Hialurónico Multimolecular 2% + B5",
+      "handle": "serum-acido-hialuronico-multimolecular-2-b5",
+      "description": "Hidratación Profunda en Múltiples Capas CutáneasCombinación de 5 tipos de ácido hialurónico (alto, medio, bajo y muy bajo peso molecular más polímero reticulado) para hidratar desde la superficie hasta las capas profundas de la epidermis. Beneficios: Rellena líneas de deshidratación, mejora firme...",
+      "imageUrl": null,
+      "price": {
+        "amount": 560,
+        "currencyCode": "USD"
+      },
+      "variantId": "gid://shopify/ProductVariant/52839312785624",
+      "variantTitle": "30 ml",
+      "availableForSale": true,
+      "goals": [
+        "hydration"
+      ],
+      "skinTypes": [
+        "dry"
+      ],
+      "routineStep": "tratamiento",
+      "tags": [
+        "meta:hidratacion",
+        "paso:tratamiento",
+        "piel:deshidratada",
+        "piel:seca",
+        "skincare",
+        "streakify"
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/10347287675096",
+      "title": "Bruma Hidratante de Centella Asiática & Ectoína",
+      "handle": "bruma-hidratante-de-centella-asiatica-ectoina",
+      "description": "Bruma Facial Reparadora y Antiestrés TérmicoBruma microdifusora que envuelve la piel con una capa refrescante de ectoína celular protectora y centella asiática pura. Restaura los niveles de agua al instante. Beneficios: Alivia tirantez, fija hidratación y protege de la luz azul. Ingredientes clav...",
+      "imageUrl": null,
+      "price": {
+        "amount": 340,
+        "currencyCode": "USD"
+      },
+      "variantId": "gid://shopify/ProductVariant/52839312752856",
+      "variantTitle": "120 ml",
+      "availableForSale": true,
+      "goals": [
+        "maintenance"
+      ],
+      "skinTypes": [
+        "dry",
+        "normal"
+      ],
+      "routineStep": "tonico",
+      "tags": [
+        "meta:calma",
+        "paso:tonico",
+        "piel:deshidratada",
+        "piel:todo-tipo",
+        "skincare",
+        "streakify"
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/10347287445720",
+      "title": "Bálsamo Desmaquillante Calmante con Camomila",
+      "handle": "balsamo-desmaquillante-calmante-con-camomila",
+      "description": "Primer Paso de Doble Limpieza FacialBálsamo fundente sedoso que se transforma en aceite al masajear sobre la piel seca y en emulsión lechosa al contacto con agua. Disuelve maquillaje resistente al agua y protector solar sin dejar residuo graso. Beneficios: Limpieza profunda no comedogénica, alivi...",
+      "imageUrl": null,
+      "price": {
+        "amount": 450,
+        "currencyCode": "USD"
+      },
+      "variantId": "gid://shopify/ProductVariant/52839312523480",
+      "variantTitle": "100 ml",
+      "availableForSale": true,
+      "goals": [
+        "maintenance"
+      ],
+      "skinTypes": [
+        "sensitive",
+        "normal"
+      ],
+      "routineStep": "limpieza",
+      "tags": [
+        "doble-limpieza",
+        "paso:limpieza",
+        "piel:sensible",
+        "piel:todo-tipo",
+        "skincare",
+        "streakify"
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/10347287380184",
+      "title": "Espuma Limpiadora Purificante Ácido Salicílico",
+      "handle": "espuma-limpiadora-purificante-acido-salicilico",
+      "description": "Espuma Purificante y Reguladora de SeboFormulada con 1.5% de Ácido Salicílico (BHA), Zinc PCA y extracto de Té Verde orgánico. Penetra en los poros para disolver el sebo acumulado y prevenir puntos negros e imperfecciones. Beneficios: Controla el brillo, desobstruye poros y refina la textura de l...",
+      "imageUrl": null,
+      "price": {
+        "amount": 420,
+        "currencyCode": "USD"
+      },
+      "variantId": "gid://shopify/ProductVariant/52839312457944",
+      "variantTitle": "150 ml",
+      "availableForSale": true,
+      "goals": [
+        "pore_appearance",
+        "visible_texture"
+      ],
+      "skinTypes": [
+        "oily",
+        "combination"
+      ],
+      "routineStep": "limpieza",
+      "tags": [
+        "meta:poros",
+        "meta:textura",
+        "paso:limpieza",
+        "piel:grasa",
+        "piel:mixta",
+        "skincare",
+        "streakify"
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/10347287314648",
+      "title": "Gel Limpiador Suave pH Neutro",
+      "handle": "gel-limpiador-suave-ph-neutro",
+      "description": "Gel Limpiador Suave con pH Fisiológico 5.5Limpiador espumoso suave enriquecido con pantenol (vitamina B5), alantoína y tensioactivos biodegradables derivados del coco. Elimina eficazmente impurezas, exceso de sebo y restos de polución sin agredir la barrera cutánea ni causar tirantez. Beneficios:...",
+      "imageUrl": null,
+      "price": {
+        "amount": 380,
+        "currencyCode": "USD"
+      },
+      "variantId": "gid://shopify/ProductVariant/52839312261336",
+      "variantTitle": "150 ml",
+      "availableForSale": true,
+      "goals": [
+        "hydration"
+      ],
+      "skinTypes": [
+        "combination",
+        "dry",
+        "sensitive"
+      ],
+      "routineStep": "limpieza",
+      "tags": [
+        "meta:hidratacion",
+        "paso:limpieza",
+        "piel:mixta",
+        "piel:seca",
+        "piel:sensible",
+        "skincare",
+        "streakify"
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/10347288494296",
+      "title": "Gel-Crema Hidratante Oil-Free Matificante",
+      "handle": "gel-crema-hidratante-oil-free-matificante",
+      "description": "Hidratación Ligera en Gel AcuosoHidratante acuoso libre de aceites formulado con sílice porosa absorbente de sebo, jugo de aloe vera y trehalosa. Brinda una sensación de frescor instantáneo con acabado aterciopelado sin brillos. Beneficios: Hidrata sin obstruir poros, efecto matificante de larga ...",
+      "imageUrl": null,
+      "price": {
+        "amount": 440,
+        "currencyCode": "USD"
+      },
+      "variantId": "gid://shopify/ProductVariant/52839313834200",
+      "variantTitle": "50 ml",
+      "availableForSale": true,
+      "goals": [
+        "shine_control"
+      ],
+      "skinTypes": [
+        "oily",
+        "combination"
+      ],
+      "routineStep": "hidratacion",
+      "tags": [
+        "meta:antibrillos",
+        "paso:hidratacion",
+        "piel:grasa",
+        "piel:mixta",
+        "skincare",
+        "streakify"
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/10347287609560",
+      "title": "Tónico Exfoliante Suave PHA 3% & Niacinamida",
+      "handle": "tonico-exfoliante-suave-pha-3-niacinamida",
+      "description": "Tónico Renovador Suave de Uso FrecuenteContiene Gluconolactona (PHA), un hidroxiácido de gran tamaño molecular que exfolia las capas superficiales sin penetrar agresivamente, combinado con Niacinamida al 2% para unificar el tono. Beneficios: Ilumina, alisa la textura áspera y mantiene la hidratac...",
+      "imageUrl": null,
+      "price": {
+        "amount": 390,
+        "currencyCode": "USD"
+      },
+      "variantId": "gid://shopify/ProductVariant/52839312687320",
+      "variantTitle": "150 ml",
+      "availableForSale": true,
+      "goals": [
+        "tone_uniformity",
+        "visible_texture"
+      ],
+      "skinTypes": [
+        "combination",
+        "sensitive"
+      ],
+      "routineStep": "tonico",
+      "tags": [
+        "meta:luminosidad",
+        "meta:textura",
+        "paso:tonico",
+        "piel:mixta",
+        "piel:sensible",
+        "skincare",
+        "streakify"
+      ]
+    },
+    {
+      "id": "gid://shopify/Product/10347287511256",
+      "title": "Agua Micelar Hidratante con Pantenol",
+      "handle": "agua-micelar-hidratante-con-pantenol",
+      "description": "Solución Micelar Limpiadora y TonificanteFórmula hipoalergénica sin enjuague libre de fragancias, alcohol y aceites esenciales. Sus micelas capturan maquillaje y partículas de contaminación mientras el pantenol calma la piel sensible. Beneficios: Limpieza rápida sin fricción, apto para ojos y lab...",
+      "imageUrl": null,
+      "price": {
+        "amount": 290,
+        "currencyCode": "USD"
+      },
+      "variantId": "gid://shopify/ProductVariant/52839312589016",
+      "variantTitle": "250 ml",
+      "availableForSale": true,
+      "goals": [
+        "maintenance"
+      ],
+      "skinTypes": [
+        "dry",
+        "sensitive"
+      ],
+      "routineStep": "limpieza",
+      "tags": [
+        "paso:limpieza",
+        "piel:seca",
+        "piel:sensible",
+        "sin-fragancia",
+        "skincare",
+        "streakify"
+      ]
+    }
+  ]
+}
