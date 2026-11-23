@@ -1,0 +1,186 @@
+/*
+ * Streakify · estilos globales
+ * Fuente de verdad: Figma «Streakify · Identidad y App (Demo Tiendanube)»
+ *   01 · Identidad   → paleta, degradados, tipografía, sombras
+ *   02 · Componentes → botón, chip, respuesta, barra de pasos, insignia,
+ *                      trama de días, medidor de racha, sellos, tarjetas
+ *
+ * Los nombres de token replican las variables de Figma (`color/primary`,
+ * `color/text-muted`…) para que diseño y código hablen igual.
+ */
+
+/* ───────────────────────── Tokens ───────────────────────── */
+:root {
+  /* Color · marca */
+  --color-primary: #2d5be3;        /* Primario · CTA y enlaces */
+  --color-primary-hover: #2348c4;  /* Texto de enlaces y botones secundarios */
+  --color-primary-dark: #1b3a9e;   /* Azul noche · isotipo, días cumplidos */
+  --color-primary-light: #eaf0fe;  /* Azul claro · chips activos, apoyo */
+
+  /* Color · texto y superficies */
+  --color-text: #14213d;           /* Tinta */
+  --color-text-muted: #556079;     /* Texto suave */
+  --color-bg: #ffffff;
+  --color-bg-alt: #f6f8fc;         /* Fondo alterno · secciones */
+  --color-bg-dawn: #f7f9fd;        /* Base del degradado Amanecer */
+  --color-surface-warm: #fbf8f4;   /* Porcelana · tarjetas de racha */
+  --color-border: #d9dfea;
+  --color-border-strong: #8b95ab;
+  --color-rail: #e3e8f2;           /* Riel de la barra de pasos */
+
+  /* Color · estados */
+  --color-success: #1f7a55;        /* Racha activa */
+  --color-success-bg: #e7f4ee;
+  --color-warning: #8a5a00;        /* Descanso · pausa / aviso */
+  --color-warning-bg: #fff4dc;
+  --color-error: #b42318;          /* Racha rota */
+  --color-error-bg: #fdecea;
+
+  /* Color · durazno (solo «hoy» y premio, ≤5 % de la pantalla) */
+  --color-peach: #e0703f;
+  --color-peach-soft: #f4a27c;     /* Arco de progreso del giro en cámara */
+  --color-warm-text: #a4471f;
+  --color-warm-bg: #fff1e8;
+
+  /* Color · cámara */
+  --color-camera-top: #0d1630;
+  --color-camera-bottom: #1e2c4f;
+  --color-landmark: #9db4f5;
+  --color-overlay-pill: rgba(20, 33, 61, 0.82);
+
+  /* Degradados (04 · Luz) — nunca mezclar azul y durazno */
+  --gradient-dawn:
+    radial-gradient(234px 211px at calc(100% - 20px) 0, #e9efff 0%, rgba(233, 239, 255, 0) 100%),
+    radial-gradient(332px 270px at 58px -42px, rgba(214, 226, 255, 0.95) 0%, rgba(214, 226, 255, 0) 100%),
+    var(--color-bg-dawn);
+  --gradient-night:
+    radial-gradient(351px 164px at 55% 45%, rgba(14, 30, 92, 0) 0%, rgba(14, 30, 92, 0.18) 100%),
+    radial-gradient(273px 197px at 100% 100%, rgba(127, 160, 255, 0.38) 0%, rgba(127, 160, 255, 0) 100%),
+    radial-gradient(292px 180px at 12% 0, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(17deg, #4374f8 10.99%, #2348c4 53.9%, #14287a 89.01%);
+  --gradient-porcelain-light: radial-gradient(240px 262px at 10% 0, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  --gradient-porcelain-stops: #fff9f4 10.99%, #fce6d8 89.01%;
+  --gradient-ice:
+    radial-gradient(176px 135px at 50% 35%, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(8deg, #f2f6ff 6.84%, #d9e4ff 93.16%); /* Fondo/Hielo · foto de producto */
+  --gradient-progress: linear-gradient(90deg, #9db4f5 0%, #2d5be3 100%);
+  --gradient-camera:
+    radial-gradient(214px 208px at 50% 42%, rgba(58, 90, 168, 0.35) 0%, rgba(58, 90, 168, 0) 100%),
+    linear-gradient(0deg, var(--color-camera-bottom) 0%, var(--color-camera-top) 100%);
+
+  /* Tipografía · Inter (en Apple cae a SF del sistema) */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* Radios */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  /* Sombras */
+  --shadow-md: 0 1px 2px rgba(20, 33, 61, 0.05), 0 6px 16px rgba(20, 33, 61, 0.07);
+  --shadow-lg: 0 16px 40px -12px rgba(20, 33, 61, 0.22);
+
+  /* Layout móvil (frames de 390 con márgenes de 24) */
+  --screen-max: 440px;
+  --gutter: 24px;
+}
+
+/* ───────────────────────── Base ───────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--gradient-dawn);
+  background-color: var(--color-bg-dawn);
+  background-repeat: no-repeat;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 23px;
+  letter-spacing: -0.011em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, p, figure, dl, dd {
+  margin: 0;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ───────────── Escala tipográfica (05 · Tipo) ─────────────
+ * Tracking de Figma en % → em (−1.1 % = −0.011em). */
+.t-display      { font-size: 40px; line-height: 44px; font-weight: 700; letter-spacing: -0.03em; }
+.t-h1           { font-size: 30px; line-height: 35px; font-weight: 700; letter-spacing: -0.025em; }
+.t-h2           { font-size: 20px; line-height: 25px; font-weight: 600; letter-spacing: -0.015em; }
+.t-h3           { font-size: 17px; line-height: 22px; font-weight: 600; letter-spacing: -0.012em; }
+.t-body         { font-size: 16px; line-height: 23px; font-weight: 400; letter-spacing: -0.011em; }
+.t-body-strong  { font-size: 16px; line-height: 23px; font-weight: 600; letter-spacing: -0.011em; }
+.t-body-sm      { font-size: 14px; line-height: 20px; font-weight: 400; letter-spacing: -0.006em; }
+.t-body-sm-strong { font-size: 14px; line-height: 20px; font-weight: 600; letter-spacing: -0.006em; }
+.t-small        { font-size: 13px; line-height: 18px; font-weight: 500; letter-spacing: -0.003em; }
+.t-small-strong { font-size: 13px; line-height: 18px; font-weight: 600; letter-spacing: -0.003em; }
+.t-label        { font-size: 11px; line-height: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+.t-streak       { font-size: 72px; line-height: 72px; font-weight: 700; letter-spacing: -0.045em; }
+
+.t-muted   { color: var(--color-text-muted); }
+.t-primary { color: var(--color-primary); }
+.t-link    { color: var(--color-primary-hover); }
+
+/* ───────────── Íconos (Phosphor Regular, 20–24 px) ─────────────
+ * <i class="icon icon-sun-horizon" aria-hidden></i> — el color sale de `color`. */
+.icon {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  background-color: currentColor;
+  -webkit-mask: var(--icon) center / contain no-repeat;
+  mask: var(--icon) center / contain no-repeat;
+}
+.icon-sm { width: 16px; height: 16px; }
+.icon-check { --icon: url("/icons/check.svg"); }
+.icon-info { --icon: url("/icons/info.svg"); }
+.icon-tag { --icon: url("/icons/tag.svg"); }
+.icon-shield-check { --icon: url("/icons/shield-check.svg"); }
+.icon-sun-horizon { --icon: url("/icons/sun-horizon.svg"); }
+.icon-user-focus { --icon: url("/icons/user-focus.svg"); }
+.icon-arrow-counter-clockwise { --icon: url("/icons/arrow-counter-clockwise.svg"); }
+.icon-arrow-right { --icon: url("/icons/arrow-right.svg"); }
+.icon-shopping-bag { --icon: url("/icons/shopping-bag.svg"); }
+
+/* Sello/Privacidad */
+.seal-privacy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-success-bg);
+  color: var(--color-success);
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 600;
+  letter-spacing: -0.003em;
+}

@@ -1,121 +1,193 @@
 /**
- * Hoja de estilos compartida por las superficies publicas del asesor
- * (recorrido demo y prototipo de scan). Se inyecta con <style>{...}</style>
- * para no depender del shell del Admin.
+ * Hoja de estilos de las superficies publicas del asesor (recorrido demo y
+ * prototipo de scan). Se inyecta con <style>{...}</style>.
+ *
+ * Todos los valores salen de los tokens globales de `streakify.css`
+ * (Figma «Streakify · Identidad y App»). No agregar colores, radios ni
+ * tamanos sueltos aqui: si falta uno, se agrega primero como token.
  */
+
+/** Iconos Phosphor (Regular) exportados de Figma a /public/icons; se usan como mascara para heredar color. */
+const CHECK_MASK = 'url("/icons/check.svg")';
+const TAG_MASK = 'url("/icons/tag.svg")';
+const INFO_MASK = 'url("/icons/info.svg")';
+
 export const ADVISOR_DEMO_CSS = `
-.sfa-page{--green:#2E7D6F;--green-soft:#E6F1EE;--ink:#1A1A1A;--muted:#616161;--line:#E3E3E3;--bg:#F7F7F5;background:var(--bg);min-height:100vh;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;display:flex;flex-direction:column}
+/* ── Pantalla ── */
+.sfa-page{min-height:100vh;display:flex;flex-direction:column;background:var(--gradient-dawn);background-color:var(--color-bg-dawn);background-repeat:no-repeat;color:var(--color-text);font-family:var(--font-sans)}
 .sfa-page *{box-sizing:border-box}
-.sfa-top{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;max-width:820px;width:100%;margin:0 auto}
+
+/* ── Barra superior ── */
+.sfa-top{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;max-width:var(--screen-max);margin:0 auto;padding:20px 16px 12px}
 .sfa-brand{display:flex;align-items:center;gap:10px}
-.sfa-mark{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;background:var(--green);color:#fff;font-weight:700}
-.sfa-brand strong{display:block;font-size:15px;line-height:18px}
-.sfa-brand span:last-child{display:block;font-size:12px;color:var(--muted)}
-.sfa-demo-pill{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 10px;color:var(--muted)}
-.sfa-main{flex:1;width:100%;max-width:820px;margin:0 auto;padding:4px 20px 40px;display:flex;flex-direction:column;gap:18px}
-.sfa-hero{padding:18px 0 4px}
-.sfa-hero h1{font-size:30px;line-height:36px;letter-spacing:-.6px;margin:0 0 10px}
-.sfa-hero p{margin:0;color:var(--muted);font-size:15px;line-height:23px;max-width:60ch}
-.sfa-hero-compact h1{font-size:24px;line-height:30px}
-.sfa-kicker{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin:0 0 8px}
-.sfa-context{margin-top:12px !important;font-size:13px;background:#fff;border:1px dashed var(--line);border-radius:10px;padding:8px 12px;display:inline-block}
-.sfa-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
-.sfa-card h2{font-size:19px;line-height:25px;margin:0 0 8px}
+.sfa-mark{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:var(--gradient-night);color:#fff;font-size:15px;font-weight:700;letter-spacing:-0.03em}
+.sfa-brand strong{display:block;font-size:16px;line-height:23px;font-weight:600;letter-spacing:-0.011em}
+.sfa-brand span:last-child{display:block;font-size:13px;line-height:18px;font-weight:500;letter-spacing:-0.003em;color:var(--color-text-muted)}
+.sfa-demo-pill{font-size:13px;line-height:18px;font-weight:500;letter-spacing:-0.003em;background:var(--color-bg-alt);border-radius:var(--radius-xs);padding:3px 8px;color:var(--color-text-muted)}
+
+/* ── Contenido ── */
+.sfa-main{flex:1;width:100%;max-width:var(--screen-max);margin:0 auto;padding:8px var(--gutter) 24px;display:flex;flex-direction:column;gap:16px}
+.sfa-hero{display:flex;flex-direction:column;gap:16px}
+.sfa-hero h1{font-size:30px;line-height:35px;font-weight:700;letter-spacing:-0.025em;margin:0}
+.sfa-hero p{margin:0;color:var(--color-text-muted);font-size:16px;line-height:23px;letter-spacing:-0.011em}
+.sfa-hero-compact h1{font-size:30px;line-height:35px}
+.sfa-hero p.sfa-kicker{margin:0 0 -8px;font-size:11px;line-height:14px;letter-spacing:0.06em;color:var(--color-primary)}
+.sfa-kicker{font-size:11px;line-height:14px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-primary);margin:0 0 4px}
+.sfa-context{display:flex !important;gap:10px;align-items:flex-start;margin:0 !important;font-size:13px !important;line-height:18px !important;font-weight:500;letter-spacing:-0.003em !important;color:var(--color-text-muted) !important;background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius-md);padding:12px 14px}
+.sfa-context strong{color:var(--color-text);font-weight:600}
+
+/* ── Tarjeta ── */
+.sfa-card{background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:20px;box-shadow:var(--shadow-md)}
+.sfa-card h1{font-size:30px;line-height:35px;font-weight:700;letter-spacing:-0.025em;margin:0}
+.sfa-card h2{font-size:20px;line-height:25px;font-weight:600;letter-spacing:-0.015em;margin:0 0 14px}
 .sfa-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:16px}
-.sfa-muted{color:var(--muted);font-size:14px;line-height:21px;margin:0 0 12px}
-.sfa-note{font-size:12px;line-height:18px;color:var(--muted);margin:14px 0 0}
-.sfa-check{display:flex;gap:12px;align-items:flex-start;padding:12px;border:1px solid var(--line);border-radius:12px;margin:10px 0;cursor:pointer}
-.sfa-check input{width:18px;height:18px;margin-top:2px;accent-color:var(--green)}
+.sfa-card-head h2{margin-bottom:4px}
+.sfa-muted{color:var(--color-text-muted);font-size:14px;line-height:20px;letter-spacing:-0.006em;margin:0 0 12px}
+.sfa-note{font-size:13px;line-height:18px;font-weight:500;letter-spacing:-0.003em;color:var(--color-text-muted);margin:14px 0 0}
+
+/* ── Consentimiento (casilla) ── */
+.sfa-check{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--color-bg-alt);border-radius:var(--radius-md);margin:10px 0;cursor:pointer}
+.sfa-check input,.sfa-scan-check input{appearance:none;-webkit-appearance:none;flex:0 0 auto;width:20px;height:20px;margin:0;border:1.5px solid var(--color-border-strong);border-radius:var(--radius-xs);background:var(--color-bg);cursor:pointer;display:inline-grid;place-content:center}
+.sfa-check input::before,.sfa-scan-check input::before{content:"";width:14px;height:14px;background:#fff;-webkit-mask:${CHECK_MASK} center/contain no-repeat;mask:${CHECK_MASK} center/contain no-repeat;transform:scale(0)}
+.sfa-check input:checked,.sfa-scan-check input:checked{background:var(--color-primary);border-color:var(--color-primary)}
+.sfa-check input:checked::before,.sfa-scan-check input:checked::before{transform:scale(1)}
 .sfa-check label{display:flex;flex-direction:column;gap:2px;cursor:pointer}
-.sfa-check strong{font-size:14px}
-.sfa-check small{font-size:12px;line-height:17px;color:var(--muted)}
+.sfa-check strong{font-size:14px;line-height:20px;font-weight:600;letter-spacing:-0.006em}
+.sfa-check small{font-size:14px;line-height:20px;letter-spacing:-0.006em;color:var(--color-text-muted)}
+
+/* ── Botones (Alto 48, radio 12; en movil ocupa todo el ancho) ── */
 .sfa-actions{display:flex;flex-direction:column;gap:10px;align-items:stretch}
-.sfa-actions-row{display:flex;flex-direction:row;flex-wrap:wrap;gap:10px;align-items:center;justify-content:flex-end}
-.sfa-btn{appearance:none;border:1px solid transparent;border-radius:10px;padding:12px 18px;font-size:14px;font-weight:600;cursor:pointer;text-align:center;text-decoration:none;font-family:inherit;transition:transform .06s ease,background .15s ease}
-.sfa-btn:active{transform:translateY(1px)}
-.sfa-btn:disabled{opacity:.45;cursor:not-allowed}
-.sfa-btn-primary{background:var(--green);color:#fff}
-.sfa-btn-primary:hover:not(:disabled){background:#266b5f}
-.sfa-btn-secondary{background:var(--green-soft);color:var(--green);border-color:#cfe3dd}
-.sfa-btn-ghost{background:#fff;border-color:var(--line);color:var(--ink)}
-.sfa-link{background:none;border:none;color:var(--green);font-size:13px;font-weight:600;text-decoration:underline;cursor:pointer;text-align:center;padding:6px;font-family:inherit}
-.sfa-link.as-button{text-decoration:underline;padding:0}
-.sfa-progress{display:flex;flex-direction:column;gap:6px;margin-top:6px}
-.sfa-progress-head{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
-.sfa-progress-track{height:6px;border-radius:999px;background:#E9E9E6;overflow:hidden}
-.sfa-progress-track span{display:block;height:100%;background:var(--green);border-radius:999px;transition:width .25s ease}
-.sfa-fieldset{border:0;padding:0;margin:0 0 22px}
+.sfa-actions-row{display:flex;flex-direction:row;flex-wrap:wrap;gap:12px;align-items:center}
+.sfa-actions-row>.sfa-btn{flex:1 1 auto;white-space:nowrap}
+.sfa-btn{appearance:none;display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border:1.5px solid transparent;border-radius:var(--radius-md);font-family:inherit;font-size:16px;line-height:23px;font-weight:600;letter-spacing:-0.011em;text-align:center;text-decoration:none;cursor:pointer;transition:background-color .15s ease,border-color .15s ease,transform .06s ease}
+.sfa-btn:active:not(:disabled){transform:translateY(1px)}
+.sfa-btn-primary{background:var(--color-primary);color:#fff}
+.sfa-btn-primary:hover:not(:disabled){background:var(--color-primary-hover)}
+.sfa-btn-ghost{background:var(--color-bg);border-color:var(--color-primary);color:var(--color-primary-hover)}
+.sfa-btn-ghost:hover:not(:disabled){background:var(--color-primary-light)}
+.sfa-btn-secondary{background:var(--color-primary-light);border-color:var(--color-primary);color:var(--color-primary-hover)}
+.sfa-btn-dark{background:#fff;color:var(--color-primary-dark)}
+.sfa-btn:disabled,.sfa-btn[aria-disabled="true"]{background:var(--color-border);border-color:var(--color-border);color:var(--color-text-muted);cursor:not-allowed}
+.sfa-link{background:none;border:none;padding:6px;color:var(--color-primary-hover);font-family:inherit;font-size:16px;line-height:23px;font-weight:600;letter-spacing:-0.011em;text-decoration:none;text-align:center;cursor:pointer}
+.sfa-link:hover{text-decoration:underline}
+.sfa-link.as-button{padding:0}
+
+/* ── Barra de pasos ── */
+.sfa-progress{display:flex;flex-direction:column;gap:8px}
+.sfa-progress-head{display:flex;justify-content:space-between;font-size:13px;line-height:18px;font-weight:500;letter-spacing:-0.003em;color:var(--color-text-muted)}
+.sfa-progress-track{height:6px;border-radius:var(--radius-pill);background:var(--color-rail);overflow:hidden}
+.sfa-progress-track span{display:block;height:100%;background:var(--gradient-progress);border-radius:var(--radius-pill);transition:width .25s ease}
+
+/* ── Pregunta + Respuesta ── */
+.sfa-fieldset{border:0;padding:0;margin:0 0 24px;min-width:0}
 .sfa-fieldset:last-child{margin-bottom:0}
-.sfa-fieldset legend{font-size:16px;font-weight:650;margin-bottom:10px;padding:0}
-.sfa-options{display:flex;flex-direction:column;gap:8px}
-.sfa-opt{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;cursor:pointer;font-size:14px}
-.sfa-opt input{accent-color:var(--green);width:16px;height:16px}
-.sfa-opt:has(input:checked){border-color:var(--green);background:var(--green-soft)}
+.sfa-fieldset legend{font-size:20px;line-height:25px;font-weight:600;letter-spacing:-0.015em;margin:0 0 14px;padding:0}
+.sfa-options{display:flex;flex-direction:column;gap:16px}
+.sfa-opt{display:flex;flex-direction:row-reverse;align-items:center;justify-content:space-between;gap:12px;min-height:56px;padding:14px 16px;background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius-md);cursor:pointer;font-size:16px;line-height:23px;font-weight:600;letter-spacing:-0.011em;transition:background-color .15s ease,border-color .15s ease}
+.sfa-opt input{appearance:none;-webkit-appearance:none;flex:0 0 auto;width:20px;height:20px;margin:0;border:1.5px solid var(--color-border-strong);border-radius:50%;background:var(--color-bg);cursor:pointer}
+.sfa-opt input:checked{border-color:var(--color-primary);background:radial-gradient(circle,var(--color-primary) 0 5.5px,var(--color-bg) 6px)}
+.sfa-opt:has(input:checked){background:var(--color-primary-light);border-color:var(--color-primary);box-shadow:inset 0 0 0 1px var(--color-primary)}
+
+/* ── Chip de opcion ── */
 .sfa-chips{display:flex;flex-wrap:wrap;gap:8px}
-.sfa-chip{appearance:none;font-family:inherit;font-size:13px;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--ink)}
-.sfa-chip.is-on{background:var(--green-soft);border-color:var(--green);color:var(--green);font-weight:600}
-.sfa-summary{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 8px}
-.sfa-summary div{background:var(--bg);border-radius:10px;padding:10px 12px}
-.sfa-summary dt{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:3px}
-.sfa-summary dd{margin:0;font-size:14px;font-weight:600}
-.sfa-list{display:flex;flex-direction:column;gap:14px}
-.sfa-product{display:grid;grid-template-columns:132px 1fr;gap:16px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;transition:border-color .15s ease}
-.sfa-product.is-selected{border-color:var(--green);box-shadow:0 0 0 1px var(--green) inset}
-.sfa-product-media img{width:100%;height:132px;object-fit:cover;border-radius:10px;display:block}
-.sfa-product-placeholder{width:100%;height:132px;border-radius:10px;background:linear-gradient(135deg,#E6F1EE,#D3E6E1);display:flex;align-items:center;justify-content:center}
-.sfa-product-placeholder span{font-size:38px;font-weight:700;color:var(--green)}
-.sfa-product-body{display:flex;flex-direction:column;gap:10px;min-width:0}
-.sfa-product-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
-.sfa-product-head h2{font-size:16px;line-height:21px;margin:0 0 2px}
-.sfa-product-head p{margin:0;font-size:12px}
-.sfa-price{font-size:15px;white-space:nowrap}
-.sfa-reasons{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
-.sfa-reasons li{display:flex;flex-direction:column;gap:1px;font-size:13px;line-height:18px}
-.sfa-reason-code{font-size:9px;font-weight:700;letter-spacing:.08em;color:var(--green);text-transform:uppercase}
-.sfa-product-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:auto}
-.sfa-pill-success{font-size:11px;font-weight:700;color:#1c5c50;background:var(--green-soft);border-radius:999px;padding:4px 10px}
-.sfa-pill-muted{font-size:11px;font-weight:600;color:var(--muted);background:#F1F1EF;border-radius:999px;padding:4px 10px}
-.sfa-note-box{display:flex;flex-direction:column;gap:3px;background:#fff;border:1px dashed var(--line);border-radius:12px;padding:12px 14px;font-size:12px;line-height:18px;color:var(--muted)}
-.sfa-note-box strong{color:var(--ink);font-size:12px}
-.sfa-routine{display:flex;flex-direction:column;gap:18px}
-.sfa-streak-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
-.sfa-streak-head h2{margin:0 0 3px}
-.sfa-streak-badge{background:var(--green-soft);color:var(--green);border-radius:14px;padding:10px 14px;text-align:center;min-width:88px}
-.sfa-streak-badge strong{display:block;font-size:26px;line-height:28px}
-.sfa-streak-badge span{font-size:10px;text-transform:uppercase;letter-spacing:.06em}
-.sfa-week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
-.sfa-day{display:flex;flex-direction:column;align-items:center;gap:5px}
-.sfa-day span{font-size:11px;color:var(--muted)}
-.sfa-day i{display:flex;align-items:center;justify-content:center;width:100%;aspect-ratio:1;max-width:38px;border-radius:50%;background:#EFEFEC;color:#fff;font-style:normal;font-size:13px;font-weight:700}
-.sfa-day.is-done i{background:var(--green)}
-.sfa-day.is-today span{color:var(--ink);font-weight:700}
-.sfa-day.is-today i{outline:2px solid var(--green);outline-offset:2px}
-.sfa-task,.sfa-benefit{display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
-.sfa-task strong,.sfa-benefit strong{display:block;font-size:14px}
-.sfa-task span,.sfa-benefit span{font-size:12px;color:var(--muted)}
-.sfa-cart-list{list-style:none;margin:0 0 12px;padding:0;display:flex;flex-direction:column}
-.sfa-cart-list li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
-.sfa-cart-list li:last-child{border-bottom:0}
-.sfa-cart-list strong{display:block;font-size:14px}
-.sfa-cart-list span{font-size:12px;color:var(--muted)}
-.sfa-total{display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid var(--line);font-size:15px}
-.sfa-total strong{font-size:19px}
-.sfa-alert{background:#FFF4E5;border:1px solid #F1D8A8;color:#5c4413;border-radius:10px;padding:10px 12px;font-size:12px;line-height:18px;margin-top:12px}
-.sfa-scan-chips{display:flex;flex-wrap:wrap;gap:6px}
-.sfa-level-chip{font-size:11px;font-weight:600;padding:4px 9px;border-radius:999px;background:#F1F1EF;color:var(--muted)}
-.sfa-level-chip.is-low{background:var(--green-soft);color:#1c5c50}
-.sfa-level-chip.is-medium{background:#FFF4E5;color:#5c4413}
-.sfa-level-chip.is-high{background:#FDECEC;color:#8a1f1f}
-.sfa-level-chip.is-unknown{background:#F1F1EF;color:var(--muted)}
-.sfa-foot{display:flex;justify-content:space-between;gap:10px;max-width:820px;width:100%;margin:0 auto;padding:18px 20px 28px;font-size:11px;color:var(--muted)}
-@media (max-width:620px){
-  .sfa-hero h1{font-size:25px;line-height:31px}
-  .sfa-main{padding:0 14px 32px}
-  .sfa-product{grid-template-columns:1fr}
-  .sfa-product-media img,.sfa-product-placeholder{height:170px}
-  .sfa-summary{grid-template-columns:1fr}
-  .sfa-actions-row{justify-content:stretch}
-  .sfa-actions-row .sfa-btn{flex:1}
-  .sfa-foot{flex-direction:column}
-}
+.sfa-chip{appearance:none;display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 16px;border-radius:var(--radius-pill);border:1px solid var(--color-border);background:var(--color-bg);color:var(--color-text);font-family:inherit;font-size:14px;line-height:20px;font-weight:400;letter-spacing:-0.006em;cursor:pointer}
+.sfa-chip.is-on{background:var(--color-primary-light);border:1.5px solid var(--color-primary);padding:0 15.5px;color:var(--color-primary-hover);font-weight:600}
+.sfa-chip.is-on::before{content:"";width:16px;height:16px;background:currentColor;-webkit-mask:${CHECK_MASK} center/contain no-repeat;mask:${CHECK_MASK} center/contain no-repeat}
+
+/* ── Perfil (lista de datos) ── */
+.sfa-summary{display:flex;flex-direction:column;margin:0 0 8px;background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius-md);overflow:hidden}
+.sfa-summary div{display:flex;flex-direction:column;gap:2px;padding:12px 14px;border-bottom:1px solid var(--color-border)}
+.sfa-summary div:last-child{border-bottom:0}
+.sfa-summary dt{font-size:13px;line-height:18px;font-weight:500;letter-spacing:-0.003em;color:var(--color-text-muted)}
+.sfa-summary dd{margin:0;font-size:16px;line-height:23px;font-weight:600;letter-spacing:-0.011em}
+.sfa-card:has(.sfa-summary){background:var(--gradient-porcelain-light),linear-gradient(25deg,var(--gradient-porcelain-stops));border:0;box-shadow:none}
+.sfa-card:has(.sfa-summary) .sfa-summary{border:0}
+
+/* ── Tarjeta de producto recomendado ── */
+.sfa-list{display:flex;flex-direction:column;gap:16px}
+.sfa-product{display:grid;grid-template-columns:88px minmax(0,1fr);column-gap:14px;row-gap:14px;align-items:start;background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:16px;box-shadow:var(--shadow-md);transition:border-color .15s ease}
+.sfa-product.is-selected{border-color:var(--color-primary);box-shadow:var(--shadow-md),inset 0 0 0 0.5px var(--color-primary)}
+.sfa-product-media img{width:88px;height:88px;object-fit:cover;object-position:50% 68%;border-radius:var(--radius-md);display:block;background:var(--color-primary-light)}
+.sfa-product-placeholder{width:88px;height:88px;border-radius:var(--radius-md);background:linear-gradient(160deg,#f2f6ff,var(--color-primary-light));display:flex;align-items:center;justify-content:center}
+.sfa-product-placeholder span{font-size:30px;font-weight:700;color:var(--color-primary)}
+.sfa-product-body{display:contents}
+.sfa-product-head{display:flex;flex-direction:column;gap:4px;min-width:0}
+.sfa-product-head h2{font-size:17px;line-height:22px;font-weight:600;letter-spacing:-0.012em;margin:0}
+.sfa-product-head p{margin:0;font-size:11px;line-height:14px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-primary)}
+.sfa-product-head>div{display:flex;flex-direction:column-reverse;gap:4px}
+.sfa-price{font-size:16px;line-height:23px;font-weight:600;letter-spacing:-0.011em;white-space:nowrap}
+.sfa-reasons{grid-column:1 / -1;list-style:none;margin:0;padding:12px 14px;background:var(--color-bg-alt);border-radius:var(--radius-md);display:flex;flex-direction:column;gap:8px}
+.sfa-reasons::before{content:"Por qué te lo recomendamos";font-size:13px;line-height:18px;font-weight:600;letter-spacing:-0.003em}
+.sfa-reasons li{display:flex;gap:10px;align-items:baseline;font-size:14px;line-height:20px;letter-spacing:-0.006em}
+.sfa-reasons li::before{content:"";flex:0 0 6px;width:6px;height:6px;border-radius:50%;background:var(--color-primary);transform:translateY(-2px)}
+.sfa-reason-code{font-size:11px;line-height:14px;font-weight:600;letter-spacing:0.06em;color:var(--color-primary);text-transform:uppercase}
+.sfa-product-foot{grid-column:1 / -1;display:flex;flex-direction:row-reverse;justify-content:flex-end;align-items:center;gap:12px}
+.sfa-product-foot .sfa-btn{min-height:40px;min-width:120px;padding:0 16px;border-radius:var(--radius-pill);font-size:14px;line-height:20px;letter-spacing:-0.006em;gap:6px}
+.sfa-product-foot .sfa-btn-ghost{border-width:1px;border-color:var(--color-border);color:var(--color-text);font-weight:400}
+.sfa-product-foot .sfa-btn-secondary::before{content:"";width:16px;height:16px;background:currentColor;-webkit-mask:${CHECK_MASK} center/contain no-repeat;mask:${CHECK_MASK} center/contain no-repeat}
+.sfa-product-foot .sfa-pill-success,.sfa-product-foot .sfa-pill-muted{background:none;padding:0;font-size:13px;line-height:18px;font-weight:500;letter-spacing:-0.003em;color:var(--color-text-muted)}
+
+/* ── Insignias ── */
+.sfa-pill-success,.sfa-pill-muted{display:inline-flex;align-items:center;gap:6px;font-size:13px;line-height:18px;font-weight:600;letter-spacing:-0.003em;border-radius:var(--radius-xs);padding:4px 10px;white-space:nowrap}
+.sfa-pill-success{color:var(--color-success);background:var(--color-success-bg)}
+.sfa-pill-success::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.sfa-pill-muted{color:var(--color-text-muted);background:var(--color-bg-alt)}
+.sfa-product-foot .sfa-pill-success::before{display:none}
+
+/* ── Aviso / como elegimos ── */
+.sfa-note-box{display:grid;grid-template-columns:20px 1fr;column-gap:10px;row-gap:2px;background:var(--color-bg);border-radius:var(--radius-md);padding:12px 14px;font-size:13px;line-height:18px;font-weight:500;letter-spacing:-0.003em;color:var(--color-text-muted)}
+.sfa-note-box::before{content:"";grid-row:1 / span 2;width:20px;height:20px;background:var(--color-text-muted);-webkit-mask:${INFO_MASK} center/contain no-repeat;mask:${INFO_MASK} center/contain no-repeat}
+.sfa-note-box strong{color:var(--color-text);font-size:13px;font-weight:600}
+
+/* ── Mi rutina · Medidor de racha ── */
+.sfa-routine{display:flex;flex-direction:column;gap:16px}
+.sfa-card.sfa-routine{background:var(--color-surface-warm);box-shadow:none}
+.sfa-streak-head{display:flex;flex-direction:row-reverse;justify-content:space-between;gap:14px;align-items:flex-start}
+.sfa-streak-head h2{margin:0 0 3px;font-size:17px;line-height:22px;letter-spacing:-0.012em}
+.sfa-streak-head .sfa-muted{margin:0}
+.sfa-streak-badge{display:flex;flex-direction:column;gap:2px;text-align:left;min-width:0}
+.sfa-streak-badge strong{display:block;font-size:72px;line-height:72px;font-weight:700;letter-spacing:-0.045em;color:var(--color-primary-dark)}
+.sfa-streak-badge span{font-size:14px;line-height:20px;letter-spacing:-0.006em;color:var(--color-text-muted)}
+
+/* Trama de dias: cumplido azul noche, hoy durazno, pendiente contorno */
+.sfa-week{display:flex;gap:10px}
+.sfa-day{display:flex;flex-direction:column-reverse;align-items:center;gap:6px}
+.sfa-day span{font-size:13px;line-height:18px;font-weight:500;letter-spacing:-0.003em;color:var(--color-text-muted)}
+.sfa-day i{display:block;width:14px;height:14px;border-radius:50%;border:1.5px solid var(--color-border);background:transparent;font-size:0;font-style:normal}
+.sfa-day.is-done i{background:var(--color-primary-dark);border-color:var(--color-primary-dark)}
+.sfa-day.is-today i{background:var(--color-peach);border-color:var(--color-peach)}
+.sfa-day.is-today span{color:var(--color-warm-text)}
+
+/* Tarea del dia y premio */
+.sfa-task{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:14px}
+.sfa-task strong{display:block;font-size:16px;line-height:23px;font-weight:600;letter-spacing:-0.011em}
+.sfa-task span{display:block;font-size:13px;line-height:18px;font-weight:500;letter-spacing:-0.003em;color:var(--color-text-muted)}
+.sfa-task .sfa-btn{flex:0 0 auto}
+.sfa-task:has(.sfa-btn:disabled){border-color:var(--color-success)}
+.sfa-benefit{display:flex;justify-content:space-between;align-items:center;gap:8px;background:var(--color-warm-bg);border-radius:var(--radius-md);padding:10px 12px}
+.sfa-benefit>div{display:grid;grid-template-columns:18px 1fr;column-gap:8px;align-items:center}
+.sfa-benefit>div::before{content:"";grid-row:1 / span 2;width:18px;height:18px;background:var(--color-warm-text);-webkit-mask:${TAG_MASK} center/contain no-repeat;mask:${TAG_MASK} center/contain no-repeat}
+.sfa-benefit strong{display:block;font-size:13px;line-height:18px;font-weight:600;letter-spacing:-0.003em;color:var(--color-warm-text)}
+.sfa-benefit span{font-size:13px;line-height:18px;font-weight:500;letter-spacing:-0.003em;color:var(--color-text)}
+
+/* ── Carrito ── */
+.sfa-cart-list{list-style:none;margin:0 0 16px;padding:0;display:flex;flex-direction:column;gap:16px}
+.sfa-cart-list li{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:4px 0 12px;border-bottom:1px solid var(--color-border)}
+.sfa-cart-list strong{display:block;font-size:16px;line-height:23px;font-weight:600;letter-spacing:-0.011em}
+.sfa-cart-list li>div span{display:block;margin-top:2px;font-size:13px;line-height:18px;font-weight:500;letter-spacing:-0.003em;color:var(--color-text-muted)}
+.sfa-cart-list li>span{font-size:16px;line-height:23px;font-weight:600;letter-spacing:-0.011em;white-space:nowrap}
+.sfa-total{display:flex;justify-content:space-between;align-items:center;font-size:16px;line-height:23px;font-weight:600;letter-spacing:-0.011em}
+.sfa-total strong{font-size:16px;font-weight:600}
+
+/* ── Alertas y niveles ── */
+.sfa-alert{background:var(--color-warning-bg);color:var(--color-warning);border-radius:var(--radius-md);padding:12px 14px;font-size:13px;line-height:18px;font-weight:600;letter-spacing:-0.003em;margin-top:12px}
+.sfa-scan-chips{display:flex;flex-wrap:wrap;gap:8px}
+.sfa-level-chip{font-size:13px;line-height:18px;font-weight:600;letter-spacing:-0.003em;padding:4px 10px;border-radius:var(--radius-xs);background:var(--color-bg-alt);color:var(--color-text-muted)}
+.sfa-level-chip.is-low{background:var(--color-success-bg);color:var(--color-success)}
+.sfa-level-chip.is-medium{background:var(--color-warning-bg);color:var(--color-warning)}
+.sfa-level-chip.is-high{background:var(--color-error-bg);color:var(--color-error)}
+.sfa-level-chip.is-unknown{background:var(--color-bg-alt);color:var(--color-text-muted)}
+
+/* ── Pie ── */
+.sfa-foot{display:flex;justify-content:center;flex-wrap:wrap;gap:4px 12px;width:100%;max-width:var(--screen-max);margin:0 auto;padding:8px var(--gutter) 24px;font-size:13px;line-height:18px;font-weight:500;letter-spacing:-0.003em;color:var(--color-text-muted);text-align:center}
 `;

@@ -263,7 +263,33 @@ export function CapturePreview({ capture, zones }: CapturePreviewProps) {
 }
 
 /** Leyenda compartida por las tres capturas. */
-export function ScanLegend() {
+export function ScanLegend({ compact = false }: { compact?: boolean }) {
+  if (compact) {
+    const items = [
+      ...ZONE_DEFINITIONS.map((zone) => ({
+        key: zone.id,
+        color: zone.color,
+        label: zone.label,
+      })),
+      { key: "redness", color: METRIC_COLORS.redness, label: METRIC_LABELS.redness },
+      { key: "shine", color: METRIC_COLORS.shine, label: METRIC_LABELS.shine },
+      { key: "texture", color: METRIC_COLORS.texture, label: METRIC_LABELS.texture },
+    ];
+    return (
+      <ul className="sfa-scan-legend-inline" aria-label="Colores de las zonas">
+        {items.map((item) => (
+          <li key={item.key}>
+            <span
+              className="sfa-scan-legend-swatch"
+              style={{ background: item.color }}
+              aria-hidden
+            />
+            {item.label}
+          </li>
+        ))}
+      </ul>
+    );
+  }
   return (
     <div className="sfa-scan-legend">
       <p className="sfa-scan-legend-title">¿Qué significa cada color?</p>

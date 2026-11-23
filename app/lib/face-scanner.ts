@@ -340,9 +340,23 @@ export type FaceScannerEngine = {
   close: () => void;
 };
 
-const DEFAULT_WASM_BASE = "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@1.2.3/wasm";
-const DEFAULT_MODEL_URL =
-  "https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task";
+// Se sirven desde /public (CDN de Vercel, mismo origen) para no depender de
+// jsdelivr ni storage.googleapis.com, que en redes móviles lentas tardan mucho.
+const DEFAULT_WASM_BASE = "/mediapipe/wasm";
+const DEFAULT_MODEL_URL = "/mediapipe/face_landmarker.task";
+
+/** Calienta la caché del navegador con el modelo y el WASM antes de pedir la cámara. */
+export function prefetchFaceScannerAssets(): void {
+  if (typeof window === "undefined") return;
+  for (const url of [
+    DEFAULT_MODEL_URL,
+    `${DEFAULT_WASM_BASE}/vision_wasm_internal.wasm`,
+    `${DEFAULT_WASM_BASE}/vision_wasm_internal.js`,
+  ]) {
+    void fetch(url, { priority: "low" } as RequestInit).catch(() => {});
+  }
+  void import("@mediapipe/tasks-vision").catch(() => {});
+}
 
 /**
  * Inicializa MediaPipe FaceLandmarker en el navegador (WASM + GPU/CPU fallback).

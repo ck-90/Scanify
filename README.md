@@ -4,7 +4,8 @@ Demo de asesor de piel con escaneo facial en el navegador: consentimiento,
 cuestionario, escaneo guiado (MediaPipe Face Landmarker), perfil,
 recomendaciones, rutina y carrito.
 
-- `/` — recorrido completo (`?step=<pantalla>`, `?seed=1` precarga respuestas).
+- `/` — página de producto simulada de la tienda (PDP) con el bloque de Streakify.
+- `/asesor` — recorrido completo (`?step=<pantalla>`, `?seed=1` precarga respuestas).
 - `/scan` — escaneo guiado de tres capturas; la imagen no sale del navegador.
 
 ## Desarrollo

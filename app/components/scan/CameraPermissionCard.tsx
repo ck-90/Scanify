@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
   captureFrame,
+  measureSharpness,
   requestCamera,
   stopTracks,
   type CapturePermissionState,
@@ -18,31 +19,48 @@ import {
   type ScanStep,
 } from "../../lib/face-scanner";
 import type { ScanCapture } from "../../lib/scan-metrics";
+import { computeFaceZoom, faceZoomTransform } from "../../lib/face-zoom";
 import { GuidedTurnOverlay } from "./GuidedTurnOverlay";
 
 export type CameraPermissionCardProps = {
   maxFrames?: number;
   onFramesChange?: (frames: string[]) => void;
   onCapturesChange?: (captures: ScanCapture[]) => void;
+  /** Avisa cuando cambia el permiso de cámara (p. ej. para mostrar solo el escáner). */
+  onPermissionChange?: (permission: CapturePermissionState) => void;
+  /** Con permiso concedido muestra solo el escáner: sin chips, insignias ni botones. */
+  bare?: boolean;
 };
 
 type EngineState = "idle" | "loading" | "ready" | "fallback";
 
 const HOLD_CAPTURE_MS = 700;
 const CAPTURE_COOLDOWN_MS = 900;
+/** Espera tras abrir la cámara: enfoque y exposición automáticos se asientan. */
+const WARMUP_MS = 1400;
+/** Una toma automática debe tener al menos esta fracción de la mejor nitidez vista. */
+const SHARPNESS_RATIO = 0.8;
+/** Tras la espera de sujeción, tope para aceptar la toma aunque no sea la más nítida. */
+const SHARPNESS_GIVE_UP_MS = 2500;
 
 export function CameraPermissionCard({
   maxFrames = 3,
   onFramesChange,
   onCapturesChange,
+  onPermissionChange,
+  bare = false,
 }: CameraPermissionCardProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const engineRef = useRef<FaceScannerEngine | null>(null);
   const rafRef = useRef<number | null>(null);
   const lastVideoTimeRef = useRef<number>(-1);
   const readySinceRef = useRef<number | null>(null);
   const cooldownUntilRef = useRef<number>(0);
+  const grantedAtRef = useRef<number>(0);
+  const bestSharpnessRef = useRef<number>(0);
+  const holdDoneAtRef = useRef<number | null>(null);
   const latestResultRef = useRef<{
     landmarks: LandmarkPoint[] | null;
     pose: HeadPose | null;
@@ -70,6 +88,28 @@ export function CameraPermissionCard({
     pose: { yaw: 0, pitch: 0, roll: 0 },
     bbox: null,
     alignmentScore: 0,
+  });
+
+  const [stageSize, setStageSize] = useState({ w: 0, h: 0 });
+
+  // Tamaño del escenario para el encuadre "solo la cara".
+  useEffect(() => {
+    const stage = stageRef.current;
+    if (!stage || typeof ResizeObserver === "undefined") return;
+    const observer = new ResizeObserver(() => {
+      setStageSize({ w: stage.clientWidth, h: stage.clientHeight });
+    });
+    observer.observe(stage);
+    return () => observer.disconnect();
+  }, []);
+
+  const faceZoom = computeFaceZoom({
+    bbox: evaluation.bbox,
+    stageWidth: stageSize.w,
+    stageHeight: stageSize.h,
+    videoWidth: videoDims.w,
+    videoHeight: videoDims.h,
+    mirrored: true,
   });
 
   const frames = captures.map((capture) => capture.src);
@@ -107,6 +147,10 @@ export function CameraPermissionCard({
   }, [captures, onFramesChange]);
 
   useEffect(() => {
+    onPermissionChange?.(permission);
+  }, [permission, onPermissionChange]);
+
+  useEffect(() => {
     onCapturesChange?.(captures);
   }, [captures, onCapturesChange]);
 
@@ -132,8 +176,9 @@ export function CameraPermissionCard({
     return true;
   }, [maxFrames, currentStep]);
 
+  // El motor se carga mientras el usuario acepta el permiso de cámara, así el
+  // rostro se reconoce en cuanto aparece el video.
   useEffect(() => {
-    if (permission !== "granted") return;
     let cancelled = false;
 
     async function initEngine() {
@@ -156,7 +201,7 @@ export function CameraPermissionCard({
       cancelled = true;
       disposeEngine();
     };
-  }, [permission, disposeEngine]);
+  }, [disposeEngine]);
 
   useEffect(() => {
     if (
@@ -208,7 +253,8 @@ export function CameraPermissionCard({
           }
           setEvaluation(nextEval);
 
-          if (nextEval.ready && now >= cooldownUntilRef.current) {
+          const warmedUp = now - grantedAtRef.current >= WARMUP_MS;
+          if (nextEval.ready && warmedUp && now >= cooldownUntilRef.current) {
             if (readySinceRef.current === null) {
               readySinceRef.current = now;
             }
@@ -216,14 +262,29 @@ export function CameraPermissionCard({
             const progress = Math.min(1, elapsed / HOLD_CAPTURE_MS);
             setHoldProgress(progress);
 
+            // Nitidez de la cara en cada cuadro; el máximo decae despacio.
+            const sharpness = measureSharpness(video, nextEval.bbox);
+            bestSharpnessRef.current = Math.max(
+              bestSharpnessRef.current * 0.995,
+              sharpness,
+            );
+
             if (elapsed >= HOLD_CAPTURE_MS) {
-              readySinceRef.current = null;
-              cooldownUntilRef.current = now + CAPTURE_COOLDOWN_MS;
-              setHoldProgress(0);
-              captureCurrentFrame();
+              holdDoneAtRef.current ??= now;
+              const sharpEnough =
+                sharpness >= bestSharpnessRef.current * SHARPNESS_RATIO;
+              const waited = now - holdDoneAtRef.current;
+              if (sharpEnough || waited >= SHARPNESS_GIVE_UP_MS) {
+                readySinceRef.current = null;
+                holdDoneAtRef.current = null;
+                cooldownUntilRef.current = now + CAPTURE_COOLDOWN_MS;
+                setHoldProgress(0);
+                captureCurrentFrame();
+              }
             }
           } else {
             readySinceRef.current = null;
+            holdDoneAtRef.current = null;
             setHoldProgress(0);
           }
         }
@@ -254,6 +315,9 @@ export function CameraPermissionCard({
       facingMode: "user",
       width: 1280,
     });
+    grantedAtRef.current = performance.now();
+    bestSharpnessRef.current = 0;
+    holdDoneAtRef.current = null;
     setPermission(state);
   }
 
@@ -266,6 +330,7 @@ export function CameraPermissionCard({
   }
 
   const completedAll = frames.length >= maxFrames;
+  const scannerOnly = bare && permission === "granted";
   const engineBadgeClass =
     engineState === "ready"
       ? "sfa-scan-badge is-ok"
@@ -283,6 +348,7 @@ export function CameraPermissionCard({
 
   return (
     <div className="sfa-scan">
+      {!scannerOnly && (
       <div className="sfa-scan-chips" style={{ marginBottom: 12 }}>
         {SCAN_STEPS.slice(0, maxFrames).map((step, idx) => {
           const done = idx < frames.length;
@@ -301,6 +367,7 @@ export function CameraPermissionCard({
           <span className={engineBadgeClass}>{engineLabel}</span>
         )}
       </div>
+      )}
 
       {permission === "prompt" && (
         <div>
@@ -350,20 +417,25 @@ export function CameraPermissionCard({
       <div
         style={{ display: permission === "granted" ? "grid" : "none", gap: 12 }}
       >
-        <div className="sfa-scan-stage">
-          <video ref={videoRef} playsInline muted autoPlay />
-          <GuidedTurnOverlay
-            active={!completedAll}
-            landmarks={landmarks}
-            tesselation={tesselation}
-            contours={contours}
-            status={evaluation.status}
-            targetStep={currentStep}
-            holdProgress={holdProgress}
-            videoWidth={videoDims.w}
-            videoHeight={videoDims.h}
-            mirrored
-          />
+        <div className="sfa-scan-stage" ref={stageRef}>
+          <div
+            className="sfa-scan-zoom"
+            style={{ transform: faceZoomTransform(faceZoom) }}
+          >
+            <video ref={videoRef} playsInline muted autoPlay />
+            <GuidedTurnOverlay
+              active={!completedAll}
+              landmarks={landmarks}
+              tesselation={tesselation}
+              contours={contours}
+              status={evaluation.status}
+              targetStep={currentStep}
+              holdProgress={holdProgress}
+              videoWidth={videoDims.w}
+              videoHeight={videoDims.h}
+              mirrored
+            />
+          </div>
           <div className="sfa-scan-hint">
             <span className={evaluation.ready ? "is-ready" : undefined}>
               {completedAll
@@ -377,6 +449,7 @@ export function CameraPermissionCard({
           </div>
         </div>
 
+        {(!scannerOnly || engineState === "fallback") && (
         <div className="sfa-scan-actions">
           <button
             className="sfa-btn sfa-btn-primary"
@@ -391,6 +464,7 @@ export function CameraPermissionCard({
                 : `Capturar ${frames.length + 1} de ${maxFrames}`}
           </button>
         </div>
+        )}
 
         <canvas ref={canvasRef} style={{ display: "none" }} />
       </div>

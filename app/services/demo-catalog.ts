@@ -16,6 +16,8 @@ export interface DemoProduct {
   handle: string;
   description: string;
   imageUrl: string | null;
+  /** Galería: principal, en ambiente y en uso. */
+  images?: string[];
   price: { amount: number; currencyCode: string };
   variantId: string;
   variantTitle: string;

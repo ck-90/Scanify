@@ -157,6 +157,15 @@ function lerpRing(prev: Ring, next: Ring, t: number): Ring {
   };
 }
 
+/** Colores de la vista de cámara (Figma · 04 Escaneo · cámara). */
+const BRAND = {
+  oval: "#FFFFFF",
+  ovalTracking: "rgba(255, 255, 255, 0.9)",
+  ovalIdle: "rgba(255, 255, 255, 0.72)",
+  progress: "#F4A27C",
+  landmark: "rgba(157, 180, 245, 0.9)",
+} as const;
+
 function drawRing(
   ctx: CanvasRenderingContext2D,
   ring: Ring,
@@ -168,7 +177,7 @@ function drawRing(
   ctx.beginPath();
   ctx.setLineDash(opts.ready ? [] : [7, 6]);
   ctx.lineWidth = opts.ready ? 3 : 2.5;
-  ctx.strokeStyle = opts.ready ? "#2E7D6F" : opts.hasFace ? "#D97706" : "rgba(255, 255, 255, 0.72)";
+  ctx.strokeStyle = opts.ready ? BRAND.oval : opts.hasFace ? BRAND.ovalTracking : BRAND.ovalIdle;
   ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2);
   ctx.stroke();
   ctx.restore();
@@ -177,11 +186,9 @@ function drawRing(
   if (progress > 0) {
     ctx.save();
     ctx.beginPath();
-    ctx.lineWidth = 4;
+    ctx.lineWidth = 5;
     ctx.lineCap = "round";
-    ctx.strokeStyle = "#4CD9BE";
-    ctx.shadowColor = "#4CD9BE";
-    ctx.shadowBlur = 8;
+    ctx.strokeStyle = BRAND.progress;
     ctx.ellipse(cx, cy, rx * 1.05, ry * 1.05, 0, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * progress);
     ctx.stroke();
     ctx.restore();
@@ -198,9 +205,9 @@ function drawOverlay(
   if (!ctx) return;
 
   const dpr = typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1;
-  const rect = canvas.getBoundingClientRect();
-  const w = Math.max(1, Math.round(rect.width));
-  const h = Math.max(1, Math.round(rect.height));
+  // clientWidth/Height ignoran el zoom (transform) del contenedor.
+  const w = Math.max(1, Math.round(canvas.clientWidth));
+  const h = Math.max(1, Math.round(canvas.clientHeight));
 
   if (canvas.width !== Math.round(w * dpr) || canvas.height !== Math.round(h * dpr)) {
     canvas.width = Math.round(w * dpr);
@@ -252,7 +259,7 @@ function drawOverlay(
       ctx.moveTo(x + dotRadius, y);
       ctx.arc(x, y, dotRadius, 0, Math.PI * 2);
     }
-    ctx.fillStyle = isReady ? "rgba(140, 255, 232, 0.85)" : "rgba(255, 255, 255, 0.72)";
+    ctx.fillStyle = isReady ? BRAND.landmark : "rgba(157, 180, 245, 0.7)";
     ctx.fill();
 
     if (reveal > 0) {
@@ -261,18 +268,18 @@ function drawOverlay(
 
       // 2. Malla 3D, revelada después de los puntos.
       ctx.lineWidth = 0.65;
-      ctx.strokeStyle = isReady ? "rgba(76, 217, 190, 0.36)" : "rgba(46, 125, 111, 0.24)";
+      ctx.strokeStyle = isReady ? "rgba(157, 180, 245, 0.36)" : "rgba(157, 180, 245, 0.22)";
       drawConnections(ctx, landmarks, props.tesselation, drawW, drawH, offsetX, offsetY, w, props.mirrored);
 
       ctx.lineWidth = 1.2;
-      ctx.strokeStyle = isReady ? "rgba(92, 225, 202, 0.68)" : "rgba(255, 255, 255, 0.45)";
+      ctx.strokeStyle = isReady ? "rgba(157, 180, 245, 0.68)" : "rgba(255, 255, 255, 0.45)";
       drawConnections(ctx, landmarks, props.contours, drawW, drawH, offsetX, offsetY, w, props.mirrored);
 
       // 3. Resaltado suave por zonas de piel (frente, zona T, mejillas)
       const pulse = 0.08 + 0.06 * Math.sin(now / 360);
       ctx.fillStyle = isReady
-        ? `rgba(76, 217, 190, ${pulse + 0.06})`
-        : `rgba(46, 125, 111, ${pulse})`;
+        ? `rgba(67, 116, 248, ${pulse + 0.06})`
+        : `rgba(67, 116, 248, ${pulse})`;
 
       for (const zone of [
         SKIN_ZONE_LANDMARKS.forehead,
@@ -307,9 +314,9 @@ function drawOverlay(
           const scanY = bounds.minY + cycle * scanSpan;
 
           const grad = ctx.createLinearGradient(0, scanY - 22, 0, scanY + 22);
-          grad.addColorStop(0, "rgba(76, 217, 190, 0)");
-          grad.addColorStop(0.5, isReady ? "rgba(92, 225, 202, 0.55)" : "rgba(46, 125, 111, 0.4)");
-          grad.addColorStop(1, "rgba(76, 217, 190, 0)");
+          grad.addColorStop(0, "rgba(157, 180, 245, 0)");
+          grad.addColorStop(0.5, isReady ? "rgba(157, 180, 245, 0.55)" : "rgba(157, 180, 245, 0.4)");
+          grad.addColorStop(1, "rgba(157, 180, 245, 0)");
           ctx.fillStyle = grad;
           ctx.fillRect(bounds.minX - 40, scanY - 22, bounds.maxX - bounds.minX + 80, 44);
 
@@ -317,8 +324,8 @@ function drawOverlay(
           ctx.moveTo(bounds.minX - 40, scanY);
           ctx.lineTo(bounds.maxX + 40, scanY);
           ctx.lineWidth = 2;
-          ctx.strokeStyle = isReady ? "rgba(167, 255, 238, 0.9)" : "rgba(92, 225, 202, 0.7)";
-          ctx.shadowColor = "#4CD9BE";
+          ctx.strokeStyle = isReady ? "rgba(234, 240, 254, 0.9)" : "rgba(157, 180, 245, 0.7)";
+          ctx.shadowColor = BRAND.landmark;
           ctx.shadowBlur = 10;
           ctx.stroke();
           ctx.restore();

@@ -9,7 +9,7 @@
       "title": "Mascarilla Nocturna Restauradora Cica & Avena",
       "handle": "mascarilla-nocturna-restauradora-cica-avena",
       "description": "Tratamiento Nocturno Rehidratante y FortalecedorMascarilla envolvente sin aclarado diseñada para recuperar pieles estresadas, expuestas al sol o a tratamientos agresivos. Combina Avena Coloidal, Centella y Ácido Poliglutámico. Beneficios: Reduce enrojecimiento durante la noche, despierta con piel...",
-      "imageUrl": null,
+      "imageUrl": "/products/photos/01-mascarilla-nocturna-cica-avena-principal.jpg",
       "price": {
         "amount": 440,
         "currencyCode": "USD"
@@ -33,6 +33,11 @@
         "piel:sensible",
         "skincare",
         "streakify"
+      ],
+      "images": [
+        "/products/photos/01-mascarilla-nocturna-cica-avena-principal.jpg",
+        "/products/photos/01-mascarilla-nocturna-cica-avena-ambiente.jpg",
+        "/products/photos/01-mascarilla-nocturna-cica-avena-en-uso.jpg"
       ]
     },
     {
@@ -40,7 +45,7 @@
       "title": "Peeling Químico Semanal AHA 10% + BHA 2%",
       "handle": "peeling-quimico-semanal-aha-10-bha-2",
       "description": "Tratamiento Exfoliante Semanal de ResurfacingSolución exfoliante de alta concentración con Ácidos Glicólico, Láctico y Tartárico (10% AHA) combinados con Ácido Salicílico (2% BHA). Promueve una renovación cutánea visible. Beneficios: Elimina células muertas, limpia poros a profundidad y unifica m...",
-      "imageUrl": null,
+      "imageUrl": "/products/photos/02-peeling-aha-bha-principal.jpg",
       "price": {
         "amount": 520,
         "currencyCode": "USD"
@@ -66,6 +71,11 @@
         "semanal",
         "skincare",
         "streakify"
+      ],
+      "images": [
+        "/products/photos/02-peeling-aha-bha-principal.jpg",
+        "/products/photos/02-peeling-aha-bha-ambiente.jpg",
+        "/products/photos/02-peeling-aha-bha-en-uso.jpg"
       ]
     },
     {
@@ -73,7 +83,7 @@
       "title": "Protector Solar Hidratante Efecto Glow FPS 50+",
       "handle": "protector-solar-hidratante-efecto-glow-fps-50",
       "description": "Fotoprotección Hidratante con Acabado Jugoso LuminosoCrema solar fluida con triple ácido hialurónico y extracto de té verde que hidrata en profundidad y aporta un brillo saludable natural sin sensación pegajosa. Beneficios: Alta protección solar con efecto buena cara, hidrata durante todo el día....",
-      "imageUrl": null,
+      "imageUrl": "/products/photos/03-protector-glow-fps50-principal.jpg",
       "price": {
         "amount": 510,
         "currencyCode": "USD"
@@ -97,6 +107,11 @@
         "piel:seca",
         "skincare",
         "streakify"
+      ],
+      "images": [
+        "/products/photos/03-protector-glow-fps50-principal.jpg",
+        "/products/photos/03-protector-glow-fps50-ambiente.jpg",
+        "/products/photos/03-protector-glow-fps50-en-uso.jpg"
       ]
     },
     {
@@ -104,7 +119,7 @@
       "title": "Protector Solar Gel Toque Seco Invisible FPS 50+",
       "handle": "protector-solar-gel-toque-seco-invisible-fps-50",
       "description": "Protector Solar Toque Seco Regulador de GrasaGel ligero invisible con filtros fotoestables de última generación y microesferas de sílice matificante. Proporciona máxima protección solar con sensación cero grasa. Beneficios: Acabado mate impecable, resistente al agua y sudor, no pica en los ojos. ...",
-      "imageUrl": null,
+      "imageUrl": "/products/photos/04-protector-gel-toque-seco-fps50-principal.jpg",
       "price": {
         "amount": 490,
         "currencyCode": "USD"
@@ -128,6 +143,10 @@
         "piel:mixta",
         "skincare",
         "streakify"
+      ],
+      "images": [
+        "/products/photos/04-protector-gel-toque-seco-fps50-principal.jpg",
+        "/products/photos/04-protector-gel-toque-seco-fps50-ambiente.jpg"
       ]
     },
     {
@@ -135,7 +154,7 @@
       "title": "Protector Solar Facial Fluido Mineral FPS 50+",
       "handle": "protector-solar-facial-fluido-mineral-fps-50",
       "description": "Fotoprotección Mineral de Amplio Espectro UVA / UVB / Luz AzulFluido 100% físico con Óxido de Zinc micronizado no nano. Fórmula invisible que no deja rastro blanco, enriquecida con antioxidantes para prevenir el envejecimiento prematuro. Beneficios: Protección solar muy alta FPS 50+, textura no c...",
-      "imageUrl": null,
+      "imageUrl": "/products/photos/05-protector-fluido-mineral-fps50-principal.jpg",
       "price": {
         "amount": 520,
         "currencyCode": "USD"
@@ -159,6 +178,11 @@
         "piel:todo-tipo",
         "skincare",
         "streakify"
+      ],
+      "images": [
+        "/products/photos/05-protector-fluido-mineral-fps50-principal.jpg",
+        "/products/photos/05-protector-fluido-mineral-fps50-ambiente.jpg",
+        "/products/photos/05-protector-fluido-mineral-fps50-en-uso.jpg"
       ]
     },
     {
@@ -166,7 +190,7 @@
       "title": "Crema de Noche Reparadora Intensiva",
       "handle": "crema-de-noche-reparadora-intensiva",
       "description": "Nutrición y Regeneración Celular NocturnaCrema suntuosa nutritiva con manteca de karité, bakuchiol vegetal y tripéptidos reparadores. Trabaja en sintonía con los ritmos circadianos de la piel para restaurarla del estrés diario. Beneficios: Despierta con la piel descansada, tersa, nutrida y visibl...",
-      "imageUrl": null,
+      "imageUrl": "/products/photos/06-crema-noche-reparadora-principal.jpg",
       "price": {
         "amount": 540,
         "currencyCode": "USD"
@@ -190,6 +214,11 @@
         "piel:seca",
         "skincare",
         "streakify"
+      ],
+      "images": [
+        "/products/photos/06-crema-noche-reparadora-principal.jpg",
+        "/products/photos/06-crema-noche-reparadora-ambiente.jpg",
+        "/products/photos/06-crema-noche-reparadora-en-uso.jpg"
       ]
     },
     {
@@ -197,7 +226,7 @@
       "title": "Emulsión Hidratante Reparadora Equilibrante",
       "handle": "emulsion-hidratante-reparadora-equilibrante",
       "description": "Emulsión Fluida Hidratante y SuavizanteFórmula fluida y confortable de absorción ultra rápida con escualano vegetal, extracto de té verde y betaglucanos. Proporciona el nivel óptimo de agua y nutrición a pieles mixtas. Beneficios: Equilibra zonas secas y zona T grasa, aporta suavidad sedosa. Ingr...",
-      "imageUrl": null,
+      "imageUrl": "/products/photos/07-emulsion-hidratante-equilibrante-principal.jpg",
       "price": {
         "amount": 460,
         "currencyCode": "USD"
@@ -220,6 +249,11 @@
         "piel:normal",
         "skincare",
         "streakify"
+      ],
+      "images": [
+        "/products/photos/07-emulsion-hidratante-equilibrante-principal.jpg",
+        "/products/photos/07-emulsion-hidratante-equilibrante-ambiente.jpg",
+        "/products/photos/07-emulsion-hidratante-equilibrante-en-uso.jpg"
       ]
     },
     {
@@ -227,7 +261,7 @@
       "title": "Crema Hidratante Facial con 5 Ceramidas",
       "handle": "crema-hidratante-facial-con-5-ceramidas",
       "description": "Crema Restauradora de Barrera CutáneaEmulsión biomimética rica en lípidos idénticos a los de la piel: 5 ceramidas esenciales (EOP, NP, AP, AS, NS), fitoesfingosina y colesterol. Sellador intensivo de la hidratación sin aroma artificial. Beneficios: Repara la función barrera, previene la pérdida d...",
-      "imageUrl": null,
+      "imageUrl": "/products/photos/08-crema-hidratante-5-ceramidas-principal.jpg",
       "price": {
         "amount": 480,
         "currencyCode": "USD"
@@ -250,6 +284,11 @@
         "sin-fragancia",
         "skincare",
         "streakify"
+      ],
+      "images": [
+        "/products/photos/08-crema-hidratante-5-ceramidas-principal.jpg",
+        "/products/photos/08-crema-hidratante-5-ceramidas-ambiente.jpg",
+        "/products/photos/08-crema-hidratante-5-ceramidas-en-uso.jpg"
       ]
     },
     {
@@ -257,7 +296,7 @@
       "title": "Sérum Ácido Salicílico 2% BHA Clarificante",
       "handle": "serum-acido-salicilico-2-bha-clarificante",
       "description": "Tratamiento Antiperfecciones y Puntos NegrosSolución exfoliante liposoluble que penetra dentro del poro para eliminar células muertas acumuladas y exceso de sebo. Enriquecida con extracto de corteza de sauce y ácido hialurónico. Beneficios: Trata brotes activos, reduce puntos negros y previene fu...",
-      "imageUrl": null,
+      "imageUrl": "/products/photos/09-serum-acido-salicilico-bha-principal.jpg",
       "price": {
         "amount": 480,
         "currencyCode": "USD"
@@ -279,6 +318,11 @@
         "piel:grasa",
         "skincare",
         "streakify"
+      ],
+      "images": [
+        "/products/photos/09-serum-acido-salicilico-bha-principal.jpg",
+        "/products/photos/09-serum-acido-salicilico-bha-ambiente.jpg",
+        "/products/photos/09-serum-acido-salicilico-bha-en-uso.jpg"
       ]
     },
     {
@@ -286,7 +330,7 @@
       "title": "Sérum Calmante Centella Asiática & Péptidos",
       "handle": "serum-calmante-centella-asiatica-peptidos",
       "description": "Tratamiento SOS para Piel Sensible y RojecesConcentrado reparador enriquecido con los cuatro extractos activos de la centella (madecassoside, asiaticoside, ácido madecásico y asiático) reforzados con un complejo de tripéptidos biomiméticos. Beneficios: Disminuye sensación de ardor, refuerza vasos...",
-      "imageUrl": null,
+      "imageUrl": "/products/photos/10-serum-centella-peptidos-principal.jpg",
       "price": {
         "amount": 520,
         "currencyCode": "USD"
@@ -308,6 +352,11 @@
         "piel:sensible",
         "skincare",
         "streakify"
+      ],
+      "images": [
+        "/products/photos/10-serum-centella-peptidos-principal.jpg",
+        "/products/photos/10-serum-centella-peptidos-ambiente.jpg",
+        "/products/photos/10-serum-centella-peptidos-en-uso.jpg"
       ]
     },
     {
@@ -315,7 +364,7 @@
       "title": "Sérum Retinol 0.3% Renovador Nocturno",
       "handle": "serum-retinol-0-3-renovador-nocturno",
       "description": "Tratamiento Antiedad y Renovación Celular NocturnaRetinol puro microencapsulado al 0.3% suspendido en escualano vegetal nutritivo. Promueve la regeneración celular acelerada sin la sequedad característica de los retinoides convencionales. Beneficios: Suaviza arrugas profundas, mejora firmeza y al...",
-      "imageUrl": null,
+      "imageUrl": "/products/photos/11-serum-retinol-nocturno-principal.jpg",
       "price": {
         "amount": 680,
         "currencyCode": "USD"
@@ -338,6 +387,11 @@
         "piel:madura",
         "skincare",
         "streakify"
+      ],
+      "images": [
+        "/products/photos/11-serum-retinol-nocturno-principal.jpg",
+        "/products/photos/11-serum-retinol-nocturno-ambiente.jpg",
+        "/products/photos/11-serum-retinol-nocturno-en-uso.jpg"
       ]
     },
     {
@@ -345,7 +399,7 @@
       "title": "Sérum Vitamina C 15% Iluminador & Ácido Ferúlico",
       "handle": "serum-vitamina-c-15-iluminador-acido-ferulico",
       "description": "Escudo Antioxidante e Iluminador AvanzadoFórmula sinérgica con Ácido L-Ascórbico estabilizado al 15%, Vitamina E pura y Ácido Ferúlico al 0.5%. Neutraliza radicales libres inducidos por radiación solar y contaminación ambiental. Beneficios: Recupera la luminosidad natural, atenúa manchas oscuras ...",
-      "imageUrl": null,
+      "imageUrl": "/products/photos/12-serum-vitamina-c-15-principal.jpg",
       "price": {
         "amount": 650,
         "currencyCode": "USD"
@@ -367,6 +421,11 @@
         "piel:todo-tipo",
         "skincare",
         "streakify"
+      ],
+      "images": [
+        "/products/photos/12-serum-vitamina-c-15-principal.jpg",
+        "/products/photos/12-serum-vitamina-c-15-ambiente.jpg",
+        "/products/photos/12-serum-vitamina-c-15-en-uso.jpg"
       ]
     },
     {
@@ -374,7 +433,7 @@
       "title": "Sérum Ácido Hialurónico Multimolecular 2% + B5",
       "handle": "serum-acido-hialuronico-multimolecular-2-b5",
       "description": "Hidratación Profunda en Múltiples Capas CutáneasCombinación de 5 tipos de ácido hialurónico (alto, medio, bajo y muy bajo peso molecular más polímero reticulado) para hidratar desde la superficie hasta las capas profundas de la epidermis. Beneficios: Rellena líneas de deshidratación, mejora firme...",
-      "imageUrl": null,
+      "imageUrl": "/products/photos/13-serum-hialuronico-b5-principal.jpg",
       "price": {
         "amount": 560,
         "currencyCode": "USD"
@@ -396,6 +455,11 @@
         "piel:seca",
         "skincare",
         "streakify"
+      ],
+      "images": [
+        "/products/photos/13-serum-hialuronico-b5-principal.jpg",
+        "/products/photos/13-serum-hialuronico-b5-ambiente.jpg",
+        "/products/photos/13-serum-hialuronico-b5-en-uso.jpg"
       ]
     },
     {
@@ -403,7 +467,7 @@
       "title": "Bruma Hidratante de Centella Asiática & Ectoína",
       "handle": "bruma-hidratante-de-centella-asiatica-ectoina",
       "description": "Bruma Facial Reparadora y Antiestrés TérmicoBruma microdifusora que envuelve la piel con una capa refrescante de ectoína celular protectora y centella asiática pura. Restaura los niveles de agua al instante. Beneficios: Alivia tirantez, fija hidratación y protege de la luz azul. Ingredientes clav...",
-      "imageUrl": null,
+      "imageUrl": "/products/photos/14-bruma-centella-ectoina-principal.jpg",
       "price": {
         "amount": 340,
         "currencyCode": "USD"
@@ -426,6 +490,10 @@
         "piel:todo-tipo",
         "skincare",
         "streakify"
+      ],
+      "images": [
+        "/products/photos/14-bruma-centella-ectoina-principal.jpg",
+        "/products/photos/14-bruma-centella-ectoina-ambiente.jpg"
       ]
     },
     {
@@ -433,7 +501,7 @@
       "title": "Bálsamo Desmaquillante Calmante con Camomila",
       "handle": "balsamo-desmaquillante-calmante-con-camomila",
       "description": "Primer Paso de Doble Limpieza FacialBálsamo fundente sedoso que se transforma en aceite al masajear sobre la piel seca y en emulsión lechosa al contacto con agua. Disuelve maquillaje resistente al agua y protector solar sin dejar residuo graso. Beneficios: Limpieza profunda no comedogénica, alivi...",
-      "imageUrl": null,
+      "imageUrl": "/products/photos/15-balsamo-desmaquillante-camomila-principal.jpg",
       "price": {
         "amount": 450,
         "currencyCode": "USD"
@@ -456,6 +524,10 @@
         "piel:todo-tipo",
         "skincare",
         "streakify"
+      ],
+      "images": [
+        "/products/photos/15-balsamo-desmaquillante-camomila-principal.jpg",
+        "/products/photos/15-balsamo-desmaquillante-camomila-ambiente.jpg"
       ]
     },
     {
@@ -463,7 +535,7 @@
       "title": "Espuma Limpiadora Purificante Ácido Salicílico",
       "handle": "espuma-limpiadora-purificante-acido-salicilico",
       "description": "Espuma Purificante y Reguladora de SeboFormulada con 1.5% de Ácido Salicílico (BHA), Zinc PCA y extracto de Té Verde orgánico. Penetra en los poros para disolver el sebo acumulado y prevenir puntos negros e imperfecciones. Beneficios: Controla el brillo, desobstruye poros y refina la textura de l...",
-      "imageUrl": null,
+      "imageUrl": "/products/photos/16-espuma-limpiadora-salicilico-principal.jpg",
       "price": {
         "amount": 420,
         "currencyCode": "USD"
@@ -488,6 +560,11 @@
         "piel:mixta",
         "skincare",
         "streakify"
+      ],
+      "images": [
+        "/products/photos/16-espuma-limpiadora-salicilico-principal.jpg",
+        "/products/photos/16-espuma-limpiadora-salicilico-ambiente.jpg",
+        "/products/photos/16-espuma-limpiadora-salicilico-en-uso.jpg"
       ]
     },
     {
@@ -495,7 +572,7 @@
       "title": "Gel Limpiador Suave pH Neutro",
       "handle": "gel-limpiador-suave-ph-neutro",
       "description": "Gel Limpiador Suave con pH Fisiológico 5.5Limpiador espumoso suave enriquecido con pantenol (vitamina B5), alantoína y tensioactivos biodegradables derivados del coco. Elimina eficazmente impurezas, exceso de sebo y restos de polución sin agredir la barrera cutánea ni causar tirantez. Beneficios:...",
-      "imageUrl": null,
+      "imageUrl": "/products/photos/17-gel-limpiador-ph-neutro-principal.jpg",
       "price": {
         "amount": 380,
         "currencyCode": "USD"
@@ -520,6 +597,11 @@
         "piel:sensible",
         "skincare",
         "streakify"
+      ],
+      "images": [
+        "/products/photos/17-gel-limpiador-ph-neutro-principal.jpg",
+        "/products/photos/17-gel-limpiador-ph-neutro-ambiente.jpg",
+        "/products/photos/17-gel-limpiador-ph-neutro-en-uso.jpg"
       ]
     },
     {
@@ -527,7 +609,7 @@
       "title": "Gel-Crema Hidratante Oil-Free Matificante",
       "handle": "gel-crema-hidratante-oil-free-matificante",
       "description": "Hidratación Ligera en Gel AcuosoHidratante acuoso libre de aceites formulado con sílice porosa absorbente de sebo, jugo de aloe vera y trehalosa. Brinda una sensación de frescor instantáneo con acabado aterciopelado sin brillos. Beneficios: Hidrata sin obstruir poros, efecto matificante de larga ...",
-      "imageUrl": null,
+      "imageUrl": "/products/photos/18-gel-crema-oil-free-matificante-principal.jpg",
       "price": {
         "amount": 440,
         "currencyCode": "USD"
@@ -550,6 +632,11 @@
         "piel:mixta",
         "skincare",
         "streakify"
+      ],
+      "images": [
+        "/products/photos/18-gel-crema-oil-free-matificante-principal.jpg",
+        "/products/photos/18-gel-crema-oil-free-matificante-ambiente.jpg",
+        "/products/photos/18-gel-crema-oil-free-matificante-en-uso.jpg"
       ]
     },
     {
@@ -557,7 +644,7 @@
       "title": "Tónico Exfoliante Suave PHA 3% & Niacinamida",
       "handle": "tonico-exfoliante-suave-pha-3-niacinamida",
       "description": "Tónico Renovador Suave de Uso FrecuenteContiene Gluconolactona (PHA), un hidroxiácido de gran tamaño molecular que exfolia las capas superficiales sin penetrar agresivamente, combinado con Niacinamida al 2% para unificar el tono. Beneficios: Ilumina, alisa la textura áspera y mantiene la hidratac...",
-      "imageUrl": null,
+      "imageUrl": "/products/photos/19-tonico-exfoliante-pha-niacinamida-principal.jpg",
       "price": {
         "amount": 390,
         "currencyCode": "USD"
@@ -582,6 +669,10 @@
         "piel:sensible",
         "skincare",
         "streakify"
+      ],
+      "images": [
+        "/products/photos/19-tonico-exfoliante-pha-niacinamida-principal.jpg",
+        "/products/photos/19-tonico-exfoliante-pha-niacinamida-ambiente.jpg"
       ]
     },
     {
@@ -589,7 +680,7 @@
       "title": "Agua Micelar Hidratante con Pantenol",
       "handle": "agua-micelar-hidratante-con-pantenol",
       "description": "Solución Micelar Limpiadora y TonificanteFórmula hipoalergénica sin enjuague libre de fragancias, alcohol y aceites esenciales. Sus micelas capturan maquillaje y partículas de contaminación mientras el pantenol calma la piel sensible. Beneficios: Limpieza rápida sin fricción, apto para ojos y lab...",
-      "imageUrl": null,
+      "imageUrl": "/products/photos/20-agua-micelar-pantenol-principal.jpg",
       "price": {
         "amount": 290,
         "currencyCode": "USD"
@@ -612,6 +703,10 @@
         "sin-fragancia",
         "skincare",
         "streakify"
+      ],
+      "images": [
+        "/products/photos/20-agua-micelar-pantenol-principal.jpg",
+        "/products/photos/20-agua-micelar-pantenol-ambiente.jpg"
       ]
     }
   ]

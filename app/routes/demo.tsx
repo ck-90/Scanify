@@ -33,7 +33,13 @@ import { ADVISOR_DEMO_CSS } from "../styles/advisor-demo";
 const STORAGE_KEY = "scanify:demo-advisor:v1";
 
 type Screen =
-  "consent" | "questions" | "profile" | "recommendations" | "routine" | "cart";
+  | "consent"
+  | "questions"
+  | "scanOffer"
+  | "profile"
+  | "recommendations"
+  | "routine"
+  | "cart";
 
 const EMPTY_ANSWERS: DemoAnswers = {
   skinType: null,
@@ -94,6 +100,7 @@ export const meta: MetaFunction = () => [
 const SCREENS: Screen[] = [
   "consent",
   "questions",
+  "scanOffer",
   "profile",
   "recommendations",
   "routine",
@@ -147,7 +154,6 @@ export default function AdvisorDemo() {
   const [screen, setScreen] = useState<Screen>(initialStep ?? "consent");
   const [questionStep, setQuestionStep] = useState(0);
   const [profileConsent, setProfileConsent] = useState(true);
-  const [photoConsent, setPhotoConsent] = useState(false);
   const [answers, setAnswers] = useState<DemoAnswers>(
     seedAnswers ?? EMPTY_ANSWERS,
   );
@@ -172,13 +178,10 @@ export default function AdvisorDemo() {
       const parsed = JSON.parse(raw) as {
         answers?: DemoAnswers;
         profileConsent?: boolean;
-        photoConsent?: boolean;
       };
       if (parsed.answers) setAnswers({ ...EMPTY_ANSWERS, ...parsed.answers });
       if (typeof parsed.profileConsent === "boolean")
         setProfileConsent(parsed.profileConsent);
-      if (typeof parsed.photoConsent === "boolean")
-        setPhotoConsent(parsed.photoConsent);
     } catch {
       // Sin storage: la demo sigue funcionando en memoria.
     }
@@ -205,12 +208,12 @@ export default function AdvisorDemo() {
     try {
       window.sessionStorage.setItem(
         STORAGE_KEY,
-        JSON.stringify({ answers, profileConsent, photoConsent }),
+        JSON.stringify({ answers, profileConsent }),
       );
     } catch {
       // Ignorar cuotas/privacidad del navegador.
     }
-  }, [answers, profileConsent, photoConsent]);
+  }, [answers, profileConsent]);
 
   const patch = (value: Partial<DemoAnswers>) =>
     setAnswers((prev) => ({ ...prev, ...value }));
@@ -257,7 +260,6 @@ export default function AdvisorDemo() {
     setAnswers(EMPTY_ANSWERS);
     setSelected([]);
     setProfileConsent(true);
-    setPhotoConsent(false);
     setQuestionStep(0);
     setScan(null);
     setScreen("consent");
@@ -327,22 +329,6 @@ export default function AdvisorDemo() {
                 </small>
               </label>
             </div>
-            <div className="sfa-check">
-              <input
-                id="consent-photo"
-                type="checkbox"
-                checked={photoConsent}
-                onChange={(event) => setPhotoConsent(event.target.checked)}
-              />
-              <label htmlFor="consent-photo">
-                <strong>Analizar una foto (opcional)</strong>
-                <small>
-                  El prototipo de cámara analiza tus capturas en este
-                  dispositivo y las usa para la recomendación. Nada se sube al
-                  servidor.
-                </small>
-              </label>
-            </div>
             <p className="sfa-note">
               Observación cosmética de rasgos visibles, no un diagnóstico
               médico.
@@ -358,9 +344,6 @@ export default function AdvisorDemo() {
             >
               Empezar cuestionario
             </button>
-            <Link className="sfa-link" to="/scan">
-              Probar el scan con cámara (prototipo)
-            </Link>
           </div>
         </main>
       )}
@@ -614,10 +597,43 @@ export default function AdvisorDemo() {
               disabled={!canContinueQuestions}
               onClick={() => {
                 if (questionStep < 2) setQuestionStep((step) => step + 1);
-                else setScreen("profile");
+                else setScreen(scan ? "profile" : "scanOffer");
               }}
             >
               {questionStep < 2 ? "Continuar" : "Ver mi perfil"}
+            </button>
+          </div>
+        </main>
+      )}
+
+      {screen === "scanOffer" && (
+        <main className="sfa-main">
+          <Progress value={1} label="Cuestionario listo" />
+          <section className="sfa-hero">
+            <p className="sfa-kicker">Opcional · Escaneo facial</p>
+            <h1>¿Afinamos tu perfil con un escaneo?</h1>
+            <p>
+              Ya tenemos tus respuestas. Si quieres, una toma de frente y dos
+              giros suaves nos ayudan a observar brillo, textura y tono.
+              Tarda menos de un minuto.
+            </p>
+          </section>
+
+          <p className="seal-privacy" style={{ alignSelf: "flex-start" }}>
+            <i className="icon icon-sm icon-shield-check" aria-hidden />
+            Tu foto no se guarda ni la ve la tienda
+          </p>
+
+          <div className="sfa-actions">
+            <Link className="sfa-btn sfa-btn-primary" to="/scan">
+              {scan ? "Repetir escaneo facial" : "Hacer escaneo facial"}
+            </Link>
+            <button
+              type="button"
+              className="sfa-link"
+              onClick={() => setScreen("profile")}
+            >
+              {scan ? "Ver mi perfil" : "Prefiero ver mi perfil sin escaneo"}
             </button>
           </div>
         </main>
@@ -915,11 +931,6 @@ export default function AdvisorDemo() {
               </div>
               <span className="sfa-pill-success">Vigente</span>
             </div>
-
-            <p className="sfa-note">
-              Vista previa de la extensión de cuenta de cliente. En esta demo el
-              check-in y la racha viven solo en la pantalla.
-            </p>
           </section>
 
           <div className="sfa-actions sfa-actions-row">
