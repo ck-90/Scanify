@@ -292,4 +292,12 @@ export const ADVISOR_DEMO_CSS = `
 
 /* Pie */
 .sfa-foot{opacity:.8;padding-top:24px}
+/* Pulido visual v2 · presentación en pantallas grandes */
+@media (min-width:600px){
+  body{background:radial-gradient(900px 500px at 15% 0,#dfe7ff 0%,rgba(223,231,255,0) 70%),radial-gradient(700px 500px at 100% 100%,#e6ecff 0%,rgba(230,236,255,0) 70%),#f3f6fc}
+  .sfa-page{max-width:420px;margin:28px auto;min-height:calc(100vh - 56px);border-radius:36px;overflow:clip;box-shadow:0 0 0 10px #fff,0 0 0 11px rgba(20,33,61,.08),0 40px 80px -30px rgba(20,33,61,.45)}
+  .sfa-page-scanner{border-radius:36px}
+}
+.sfa-hero h1{font-size:32px;line-height:36px;letter-spacing:-0.03em}
+.sfa-card h2{font-size:21px}
 `;

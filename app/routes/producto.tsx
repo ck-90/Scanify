@@ -157,4 +157,24 @@ const PDP_CSS = `
 .pdp-btn-primary:hover{background:linear-gradient(180deg,#3360e6 0%,var(--color-primary-hover) 100%)}
 .pdp-btn-secondary{border-width:1px;border-color:rgba(45,91,227,.38);margin-top:4px}
 .pdp-btn-secondary:hover{border-color:var(--color-primary)}
+/* Pulido visual v2 · más presencia de marca */
+.pdp-gallery{background:radial-gradient(260px 200px at 50% 40%,#ffffff 0%,rgba(255,255,255,0) 100%),linear-gradient(170deg,#f2f6ff 0%,#dbe5ff 100%)}
+.pdp-photo img{mix-blend-mode:multiply;filter:saturate(1.05) contrast(1.02)}
+.pdp-gallery::after{content:"";position:absolute;left:0;right:0;bottom:0;height:72px;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.55));pointer-events:none}
+.pdp-thumbs{z-index:1}
+.pdp-content h1{font-size:24px;line-height:29px;font-weight:700;letter-spacing:-0.025em}
+.pdp-content>.t-body-strong{font-size:20px;line-height:25px;letter-spacing:-0.02em;margin-bottom:8px}
+.pdp-block{position:relative;overflow:hidden;gap:14px;padding:20px;border:0;border-radius:22px;color:#fff;background:var(--gradient-night);box-shadow:0 1px 2px rgba(20,33,61,.08),0 22px 40px -18px rgba(27,58,158,.65)}
+.pdp-block::before{content:"";position:absolute;right:-70px;top:-90px;width:240px;height:240px;border-radius:50%;border:1.5px solid rgba(201,214,251,.28);box-shadow:0 0 0 34px rgba(201,214,251,.06);pointer-events:none}
+.pdp-block>*{position:relative}
+.pdp-block-brand img{width:32px;height:32px;filter:drop-shadow(0 6px 12px rgba(10,20,60,.45))}
+.pdp-block h2{color:#fff;font-size:18px;line-height:23px;letter-spacing:-0.02em}
+.pdp-block .t-muted{color:#dbe5ff}
+.pdp-block .pdp-btn-primary{background:#fff;color:var(--color-primary-dark);box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 12px 24px -12px rgba(5,12,40,.7)}
+.pdp-block .pdp-btn-primary:hover{background:#f2f6ff}
+.pdp-block .seal-privacy{background:rgba(255,255,255,.14);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}
+@media (min-width:600px){
+  body{background:radial-gradient(900px 500px at 15% 0,#dfe7ff 0%,rgba(223,231,255,0) 70%),radial-gradient(700px 500px at 100% 100%,#e6ecff 0%,rgba(230,236,255,0) 70%),#f3f6fc}
+  .pdp-page{max-width:420px;margin:28px auto;min-height:calc(100vh - 56px);border-radius:36px;overflow:clip;box-shadow:0 0 0 10px #fff,0 0 0 11px rgba(20,33,61,.08),0 40px 80px -30px rgba(20,33,61,.45)}
+}
 `;
