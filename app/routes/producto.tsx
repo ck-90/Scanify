@@ -138,4 +138,23 @@ const PDP_CSS = `
 .pdp-btn-primary:hover{background:var(--color-primary-hover)}
 .pdp-btn-secondary{background:var(--color-bg);border-color:var(--color-primary);color:var(--color-primary-hover)}
 .pdp-btn-secondary:hover{background:var(--color-primary-light)}
+/* Pulido visual (solo estilos) */
+.pdp-page{-webkit-tap-highlight-color:transparent}
+.pdp-header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.86);-webkit-backdrop-filter:saturate(1.6) blur(14px);backdrop-filter:saturate(1.6) blur(14px);border-bottom-color:rgba(20,33,61,.07)}
+.pdp-store{letter-spacing:-0.02em}
+.pdp-photo{height:420px}
+.pdp-thumbs{bottom:16px;gap:10px}
+.pdp-thumb{width:52px;height:52px;border-radius:14px;border-width:2px;opacity:.9;box-shadow:0 6px 16px -6px rgba(20,33,61,.35);transition:transform .15s ease,opacity .15s ease}
+.pdp-thumb.is-active{opacity:1;transform:translateY(-2px);box-shadow:0 0 0 2px #fff,0 10px 20px -8px rgba(45,91,227,.55)}
+.pdp-content{gap:10px;padding-top:24px}
+.pdp-content h1{text-wrap:balance;letter-spacing:-0.02em}
+.pdp-content>.t-body-strong{font-size:18px;font-variant-numeric:tabular-nums;margin-bottom:6px}
+.pdp-block{gap:12px;padding:18px;border-color:rgba(45,91,227,.14);border-radius:20px;box-shadow:0 1px 2px rgba(20,33,61,.04),0 14px 30px -16px rgba(45,91,227,.35)}
+.pdp-block-brand img{filter:drop-shadow(0 4px 8px rgba(35,72,196,.28))}
+.pdp-btn{min-height:50px;border-radius:14px;transition:background-color .18s ease,border-color .18s ease,box-shadow .18s ease,transform .08s ease}
+.pdp-btn:active{transform:translateY(1px)}
+.pdp-btn-primary{background:linear-gradient(180deg,#3a68ee 0%,var(--color-primary) 55%,#2a55d8 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 1px 2px rgba(27,58,158,.25),0 10px 22px -10px rgba(45,91,227,.7)}
+.pdp-btn-primary:hover{background:linear-gradient(180deg,#3360e6 0%,var(--color-primary-hover) 100%)}
+.pdp-btn-secondary{border-width:1px;border-color:rgba(45,91,227,.38);margin-top:4px}
+.pdp-btn-secondary:hover{border-color:var(--color-primary)}
 `;
