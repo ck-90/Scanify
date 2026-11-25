@@ -300,4 +300,27 @@ export const ADVISOR_DEMO_CSS = `
 }
 .sfa-hero h1{font-size:32px;line-height:36px;letter-spacing:-0.03em}
 .sfa-card h2{font-size:21px}
+/* Pulido visual v3 · cabecera de marca en todas las pantallas del asesor
+ * La barra superior y el primer bloque de cada pantalla forman una banda
+ * Azul noche continua; la tarjeta siguiente se monta sobre su borde. */
+.sfa-top{background:#2b55da;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+.sfa-brand strong{color:#fff}
+.sfa-brand span:last-child{color:#c9d6fb}
+.sfa-demo-pill{color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}
+.sfa-mark{filter:drop-shadow(0 6px 12px rgba(5,12,40,.45))}
+.sfa-main{padding-top:0}
+.sfa-main>:first-child{position:relative;overflow:hidden;margin:0 calc(-1 * var(--gutter));padding:10px var(--gutter) 30px;border-radius:0 0 30px 30px;color:#fff;background:radial-gradient(360px 220px at 108% 95%,rgba(127,160,255,.42) 0%,rgba(127,160,255,0) 70%),radial-gradient(300px 180px at -10% 110%,rgba(20,40,122,.55) 0%,rgba(20,40,122,0) 70%),linear-gradient(180deg,#2b55da 0%,#2348c4 55%,#1b3a9e 100%);box-shadow:0 18px 36px -24px rgba(27,58,158,.8)}
+.sfa-main>:first-child::after{content:"";position:absolute;right:-110px;top:12px;width:260px;height:260px;border-radius:50%;border:1.5px solid rgba(201,214,251,.22);pointer-events:none}
+.sfa-main>:first-child:has(+ .sfa-card),.sfa-main>:first-child:has(+ .sfa-list){padding-bottom:64px}
+.sfa-main>:first-child + .sfa-card,.sfa-main>:first-child + .sfa-list{position:relative;z-index:1;margin-top:-56px}
+.sfa-main>.sfa-hero:first-child h1{color:#fff}
+.sfa-main>.sfa-hero:first-child p{color:#dbe5ff}
+.sfa-main>.sfa-hero:first-child p.sfa-kicker{color:#9db4f5}
+.sfa-main>.sfa-hero:first-child .sfa-context{color:#dbe5ff !important;background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.18);box-shadow:none}
+.sfa-main>.sfa-hero:first-child .sfa-context strong{color:#fff}
+.sfa-main>.sfa-progress:first-child{padding-top:14px}
+.sfa-main>.sfa-progress:first-child .sfa-progress-head{color:#dbe5ff}
+.sfa-main>.sfa-progress:first-child .sfa-progress-track{background:rgba(255,255,255,.18)}
+.sfa-main>.sfa-progress:first-child .sfa-progress-track span{background:linear-gradient(90deg,#c9d6fb 0%,#ffffff 100%);box-shadow:0 0 12px rgba(255,255,255,.5)}
+.sfa-main>:first-child + .sfa-progress{margin-top:4px}
 `;
