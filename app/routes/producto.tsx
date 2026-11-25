@@ -138,4 +138,45 @@ const PDP_CSS = `
 .pdp-btn-primary:hover{background:var(--color-primary-hover)}
 .pdp-btn-secondary{background:var(--color-bg);border-color:var(--color-primary);color:var(--color-primary-hover)}
 .pdp-btn-secondary:hover{background:var(--color-primary-light)}
+/* Pulido visual (solo estilos) */
+.pdp-page{-webkit-tap-highlight-color:transparent}
+.pdp-header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.86);-webkit-backdrop-filter:saturate(1.6) blur(14px);backdrop-filter:saturate(1.6) blur(14px);border-bottom-color:rgba(20,33,61,.07)}
+.pdp-store{letter-spacing:-0.02em}
+.pdp-photo{height:420px}
+.pdp-thumbs{bottom:16px;gap:10px}
+.pdp-thumb{width:52px;height:52px;border-radius:14px;border-width:2px;opacity:.9;box-shadow:0 6px 16px -6px rgba(20,33,61,.35);transition:transform .15s ease,opacity .15s ease}
+.pdp-thumb.is-active{opacity:1;transform:translateY(-2px);box-shadow:0 0 0 2px #fff,0 10px 20px -8px rgba(45,91,227,.55)}
+.pdp-content{gap:10px;padding-top:24px}
+.pdp-content h1{text-wrap:balance;letter-spacing:-0.02em}
+.pdp-content>.t-body-strong{font-size:18px;font-variant-numeric:tabular-nums;margin-bottom:6px}
+.pdp-block{gap:12px;padding:18px;border-color:rgba(45,91,227,.14);border-radius:20px;box-shadow:0 1px 2px rgba(20,33,61,.04),0 14px 30px -16px rgba(45,91,227,.35)}
+.pdp-block-brand img{filter:drop-shadow(0 4px 8px rgba(35,72,196,.28))}
+.pdp-btn{min-height:50px;border-radius:14px;transition:background-color .18s ease,border-color .18s ease,box-shadow .18s ease,transform .08s ease}
+.pdp-btn:active{transform:translateY(1px)}
+.pdp-btn-primary{background:linear-gradient(180deg,#3a68ee 0%,var(--color-primary) 55%,#2a55d8 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 1px 2px rgba(27,58,158,.25),0 10px 22px -10px rgba(45,91,227,.7)}
+.pdp-btn-primary:hover{background:linear-gradient(180deg,#3360e6 0%,var(--color-primary-hover) 100%)}
+.pdp-btn-secondary{border-width:1px;border-color:rgba(45,91,227,.38);margin-top:4px}
+.pdp-btn-secondary:hover{border-color:var(--color-primary)}
+/* Pulido visual v2 · más presencia de marca */
+.pdp-gallery{background:radial-gradient(260px 200px at 50% 40%,#ffffff 0%,rgba(255,255,255,0) 100%),linear-gradient(170deg,#f2f6ff 0%,#dbe5ff 100%)}
+.pdp-photo img{mix-blend-mode:multiply;filter:saturate(1.05) contrast(1.02)}
+.pdp-gallery::after{content:"";position:absolute;left:0;right:0;bottom:0;height:72px;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.55));pointer-events:none}
+.pdp-thumbs{z-index:1}
+.pdp-content h1{font-size:24px;line-height:29px;font-weight:700;letter-spacing:-0.025em}
+.pdp-content>.t-body-strong{font-size:20px;line-height:25px;letter-spacing:-0.02em;margin-bottom:8px}
+.pdp-block{position:relative;overflow:hidden;gap:14px;padding:20px;border:0;border-radius:22px;color:#fff;background:var(--gradient-night);box-shadow:0 1px 2px rgba(20,33,61,.08),0 22px 40px -18px rgba(27,58,158,.65)}
+.pdp-block::before{content:"";position:absolute;right:-70px;top:-90px;width:240px;height:240px;border-radius:50%;border:1.5px solid rgba(201,214,251,.28);box-shadow:0 0 0 34px rgba(201,214,251,.06);pointer-events:none}
+.pdp-block>*{position:relative}
+.pdp-block-brand img{width:32px;height:32px;filter:drop-shadow(0 6px 12px rgba(10,20,60,.45))}
+.pdp-block h2{color:#fff;font-size:18px;line-height:23px;letter-spacing:-0.02em}
+.pdp-block .t-muted{color:#dbe5ff}
+.pdp-block .pdp-btn-primary{background:#fff;color:var(--color-primary-dark);box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 12px 24px -12px rgba(5,12,40,.7)}
+.pdp-block .pdp-btn-primary:hover{background:#f2f6ff}
+.pdp-block .seal-privacy{background:rgba(255,255,255,.14);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}
+@media (min-width:600px){
+  body{background:radial-gradient(900px 500px at 15% 0,#dfe7ff 0%,rgba(223,231,255,0) 70%),radial-gradient(700px 500px at 100% 100%,#e6ecff 0%,rgba(230,236,255,0) 70%),#f3f6fc}
+  .pdp-page{max-width:420px;margin:28px auto;min-height:calc(100vh - 56px);border-radius:36px;overflow:clip;box-shadow:0 0 0 10px #fff,0 0 0 11px rgba(20,33,61,.08),0 40px 80px -30px rgba(20,33,61,.45)}
+}
+@media (max-width:380px){.pdp-block{padding:18px 16px}.pdp-btn{padding:0 12px;font-size:15px;letter-spacing:-0.015em}}
+@media (max-width:340px){.pdp-btn{font-size:14px;padding:0 10px}.pdp-block .seal-privacy{font-size:12px;padding:5px 10px}}
 `;

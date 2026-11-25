@@ -190,4 +190,137 @@ export const ADVISOR_DEMO_CSS = `
 
 /* ── Pie ── */
 .sfa-foot{display:flex;justify-content:center;flex-wrap:wrap;gap:4px 12px;width:100%;max-width:var(--screen-max);margin:0 auto;padding:8px var(--gutter) 24px;font-size:13px;line-height:18px;font-weight:500;letter-spacing:-0.003em;color:var(--color-text-muted);text-align:center}
+
+/* ════════════════ Pulido visual ════════════════
+ * Capa de refinamiento: solo estilos. No cambia estructura, contenido ni
+ * tokens de identidad (colores, tipografía, marca) de streakify.css.
+ * Bordes en tinta translúcida, sombras teñidas, profundidad en el CTA,
+ * ritmo vertical y estados más claros. */
+.sfa-page{-webkit-tap-highlight-color:transparent;font-feature-settings:"cv11","ss01"}
+.sfa-page h1,.sfa-page h2,.sfa-page legend{text-wrap:balance}
+.sfa-page p,.sfa-page li,.sfa-page small{text-wrap:pretty}
+.sfa-price,.sfa-total,.sfa-cart-list li>span,.sfa-progress-head,.sfa-streak-badge strong{font-variant-numeric:tabular-nums}
+
+/* Barra superior: fija, translúcida, con el isotipo real */
+.sfa-top{position:sticky;top:0;z-index:20;padding:14px var(--gutter) 12px;background:linear-gradient(180deg,rgba(247,249,253,.92),rgba(247,249,253,.72));-webkit-backdrop-filter:saturate(1.6) blur(14px);backdrop-filter:saturate(1.6) blur(14px);box-shadow:0 1px 0 rgba(20,33,61,.06)}
+.sfa-mark{width:32px;height:32px;border-radius:0;background:url("/brand/isotipo-contenedor.svg") center/contain no-repeat;font-size:0;color:transparent;filter:drop-shadow(0 4px 8px rgba(35,72,196,.28))}
+.sfa-brand{gap:11px}
+.sfa-brand strong{letter-spacing:-0.02em}
+.sfa-demo-pill{background:transparent;box-shadow:inset 0 0 0 1px rgba(20,33,61,.12);border-radius:var(--radius-pill);padding:3px 10px;font-size:12px;line-height:16px;font-weight:600;letter-spacing:0.02em}
+
+/* Ritmo del contenido */
+.sfa-main{padding-top:20px;gap:20px}
+.sfa-hero{gap:12px}
+.sfa-hero p.sfa-kicker{margin:0 0 -2px;display:inline-flex;align-items:center;gap:8px}
+.sfa-hero p.sfa-kicker::before{content:"";width:16px;height:2px;border-radius:2px;background:currentColor;opacity:.55}
+.sfa-hero p{max-width:36ch}
+
+/* Tarjetas: borde en tinta translúcida y sombra teñida en dos capas */
+.sfa-card,.sfa-product{border-color:rgba(20,33,61,.08);border-radius:20px;box-shadow:0 1px 2px rgba(20,33,61,.04),0 12px 28px -12px rgba(20,33,61,.16)}
+.sfa-card{padding:22px 20px}
+.sfa-card h2{letter-spacing:-0.02em}
+.sfa-card-head{margin-bottom:18px}
+.sfa-context,.sfa-note-box{border:1px solid rgba(20,33,61,.07);box-shadow:0 1px 2px rgba(20,33,61,.03)}
+.sfa-note-box{background:rgba(255,255,255,.7)}
+
+/* Botones: el primario con luz y profundidad, el fantasma más ligero */
+.sfa-btn{min-height:50px;border-radius:14px;transition:background-color .18s ease,border-color .18s ease,box-shadow .18s ease,transform .08s ease}
+.sfa-btn-primary{background:linear-gradient(180deg,#3a68ee 0%,var(--color-primary) 55%,#2a55d8 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 1px 2px rgba(27,58,158,.25),0 10px 22px -10px rgba(45,91,227,.7)}
+.sfa-btn-primary:hover:not(:disabled){background:linear-gradient(180deg,#3360e6 0%,var(--color-primary-hover) 100%)}
+.sfa-btn-primary:active:not(:disabled){box-shadow:inset 0 1px 2px rgba(20,33,61,.25)}
+.sfa-btn-ghost{border-width:1px;border-color:rgba(45,91,227,.38);background:rgba(255,255,255,.85)}
+.sfa-btn-ghost:hover:not(:disabled){border-color:var(--color-primary)}
+.sfa-btn-secondary{border-width:1px}
+.sfa-btn:disabled,.sfa-btn[aria-disabled="true"]{background:#e8ecf4;border-color:transparent;color:#8b95ab;box-shadow:none}
+.sfa-link{text-underline-offset:4px;text-decoration-thickness:1px}
+.sfa-actions-row{gap:10px}
+
+/* Barra de pasos */
+.sfa-progress-head{font-weight:600;color:var(--color-text-muted)}
+.sfa-progress-track{height:6px;background:rgba(20,33,61,.07)}
+.sfa-progress-track span{box-shadow:0 0 10px rgba(45,91,227,.35)}
+
+/* Preguntas: opciones más compactas y selección con peso */
+.sfa-fieldset{margin-bottom:28px}
+.sfa-fieldset legend{margin-bottom:12px}
+.sfa-options{gap:10px}
+.sfa-opt{min-height:54px;padding:13px 16px;border-color:rgba(20,33,61,.1);border-radius:14px;box-shadow:0 1px 2px rgba(20,33,61,.03)}
+.sfa-opt:hover{border-color:rgba(45,91,227,.45)}
+.sfa-opt input{transition:border-color .15s ease,background .15s ease}
+.sfa-opt:has(input:checked){border-color:var(--color-primary);box-shadow:0 0 0 1px var(--color-primary),0 8px 18px -12px rgba(45,91,227,.6)}
+.sfa-chip{border-color:rgba(20,33,61,.12)}
+.sfa-check{border:1px solid rgba(20,33,61,.06)}
+
+/* Perfil */
+.sfa-summary{box-shadow:0 1px 2px rgba(20,33,61,.04),0 10px 24px -16px rgba(164,71,31,.35)}
+.sfa-summary div{border-bottom-color:rgba(20,33,61,.07);padding:13px 16px}
+
+/* Recomendaciones */
+.sfa-list{gap:14px}
+.sfa-product{padding:16px 16px 14px;transition:border-color .18s ease,box-shadow .18s ease}
+.sfa-product.is-selected{border-color:var(--color-primary);box-shadow:0 0 0 1px var(--color-primary),0 14px 30px -14px rgba(45,91,227,.45)}
+.sfa-product-media img,.sfa-product-placeholder{border-radius:14px;box-shadow:inset 0 0 0 1px rgba(20,33,61,.06)}
+.sfa-reasons{background:var(--color-bg-alt);border:1px solid rgba(20,33,61,.05);border-radius:14px;padding:13px 14px}
+.sfa-reasons::before{font-size:11px;line-height:14px;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-text-muted)}
+.sfa-reasons li::before{transform:translateY(-1px);box-shadow:0 0 0 3px rgba(45,91,227,.14)}
+.sfa-product-foot .sfa-btn{min-height:40px;border-radius:var(--radius-pill);box-shadow:none}
+.sfa-product-foot .sfa-btn-ghost{border-color:rgba(20,33,61,.14)}
+
+/* Mi rutina: la tarea del día respira y el botón no aprieta el texto */
+.sfa-card.sfa-routine{border-color:rgba(164,71,31,.1);box-shadow:0 1px 2px rgba(20,33,61,.04),0 14px 30px -16px rgba(164,71,31,.3)}
+.sfa-streak-badge strong{background:linear-gradient(180deg,var(--color-primary) 0%,var(--color-primary-dark) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sfa-day i{width:16px;height:16px}
+.sfa-day.is-done i{box-shadow:0 2px 6px -2px rgba(27,58,158,.6)}
+.sfa-day.is-today i{box-shadow:0 0 0 4px rgba(224,112,63,.18)}
+.sfa-task{flex-wrap:wrap;border-color:rgba(20,33,61,.08);border-radius:16px;padding:16px;box-shadow:0 1px 2px rgba(20,33,61,.04)}
+.sfa-task>div{flex:1 1 180px;min-width:0}
+.sfa-task .sfa-btn{flex:1 1 140px}
+.sfa-benefit{border:1px solid rgba(164,71,31,.12);border-radius:14px;padding:12px 14px}
+
+/* Carrito */
+.sfa-cart-list li{border-bottom-color:rgba(20,33,61,.08);padding-bottom:14px}
+.sfa-total{padding-top:4px;font-size:17px}
+.sfa-total strong{font-size:20px;letter-spacing:-0.02em}
+
+/* Escaneo · consejos como lista con filetes, no azulejos */
+.sfa-page .sfa-scan-tips{gap:0;border-top:1px solid rgba(20,33,61,.07)}
+.sfa-page .sfa-scan-tip{background:transparent;border-radius:0;padding:14px 2px;gap:14px;border-bottom:1px solid rgba(20,33,61,.07)}
+.sfa-page .sfa-scan-tip{position:relative}
+.sfa-page .sfa-scan-tip::before{content:"";position:absolute;left:2px;top:50%;width:36px;height:36px;margin-top:-18px;border-radius:12px;background:var(--color-primary-light)}
+.sfa-page .sfa-scan-tip .icon{position:relative;margin:0 8px;color:var(--color-primary)}
+.sfa-page .sfa-scan-badge{border-radius:var(--radius-pill);background:var(--color-primary-light);color:var(--color-primary-hover)}
+
+/* Pie */
+.sfa-foot{opacity:.8;padding-top:24px}
+/* Pulido visual v2 · presentación en pantallas grandes */
+@media (min-width:600px){
+  body{background:radial-gradient(900px 500px at 15% 0,#dfe7ff 0%,rgba(223,231,255,0) 70%),radial-gradient(700px 500px at 100% 100%,#e6ecff 0%,rgba(230,236,255,0) 70%),#f3f6fc}
+  .sfa-page{max-width:420px;margin:28px auto;min-height:calc(100vh - 56px);border-radius:36px;overflow:clip;box-shadow:0 0 0 10px #fff,0 0 0 11px rgba(20,33,61,.08),0 40px 80px -30px rgba(20,33,61,.45)}
+  .sfa-page-scanner{border-radius:36px}
+}
+.sfa-hero h1{font-size:32px;line-height:36px;letter-spacing:-0.03em}
+.sfa-card h2{font-size:21px}
+/* Pulido visual v3 · cabecera de marca en todas las pantallas del asesor
+ * La barra superior y el primer bloque de cada pantalla forman una banda
+ * Azul noche continua; la tarjeta siguiente se monta sobre su borde. */
+.sfa-top{background:#2b55da;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+.sfa-brand strong{color:#fff}
+.sfa-brand span:last-child{color:#c9d6fb}
+.sfa-demo-pill{color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}
+.sfa-mark{filter:drop-shadow(0 6px 12px rgba(5,12,40,.45))}
+.sfa-main{padding-top:0}
+.sfa-main>:first-child{position:relative;overflow:hidden;margin:0 calc(-1 * var(--gutter));padding:10px var(--gutter) 30px;border-radius:0 0 30px 30px;color:#fff;background:radial-gradient(360px 220px at 108% 95%,rgba(127,160,255,.42) 0%,rgba(127,160,255,0) 70%),radial-gradient(300px 180px at -10% 110%,rgba(20,40,122,.55) 0%,rgba(20,40,122,0) 70%),linear-gradient(180deg,#2b55da 0%,#2348c4 55%,#1b3a9e 100%);box-shadow:0 18px 36px -24px rgba(27,58,158,.8)}
+.sfa-main>:first-child::after{content:"";position:absolute;right:-110px;top:12px;width:260px;height:260px;border-radius:50%;border:1.5px solid rgba(201,214,251,.22);pointer-events:none}
+.sfa-main>:first-child:has(+ .sfa-card),.sfa-main>:first-child:has(+ .sfa-list){padding-bottom:64px}
+.sfa-main>:first-child + .sfa-card,.sfa-main>:first-child + .sfa-list{position:relative;z-index:1;margin-top:-56px}
+.sfa-main>.sfa-hero:first-child h1{color:#fff}
+.sfa-main>.sfa-hero:first-child p{color:#dbe5ff}
+.sfa-main>.sfa-hero:first-child p.sfa-kicker{color:#9db4f5}
+.sfa-main>.sfa-hero:first-child .sfa-context{color:#dbe5ff !important;background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.18);box-shadow:none}
+.sfa-main>.sfa-hero:first-child .sfa-context strong{color:#fff}
+.sfa-main>.sfa-progress:first-child{padding-top:14px}
+.sfa-main>.sfa-progress:first-child .sfa-progress-head{color:#dbe5ff}
+.sfa-main>.sfa-progress:first-child .sfa-progress-track{background:rgba(255,255,255,.18)}
+.sfa-main>.sfa-progress:first-child .sfa-progress-track span{background:linear-gradient(90deg,#c9d6fb 0%,#ffffff 100%);box-shadow:0 0 12px rgba(255,255,255,.5)}
+.sfa-main>:first-child + .sfa-progress{margin-top:4px}
 `;
