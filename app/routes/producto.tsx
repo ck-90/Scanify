@@ -177,4 +177,6 @@ const PDP_CSS = `
   body{background:radial-gradient(900px 500px at 15% 0,#dfe7ff 0%,rgba(223,231,255,0) 70%),radial-gradient(700px 500px at 100% 100%,#e6ecff 0%,rgba(230,236,255,0) 70%),#f3f6fc}
   .pdp-page{max-width:420px;margin:28px auto;min-height:calc(100vh - 56px);border-radius:36px;overflow:clip;box-shadow:0 0 0 10px #fff,0 0 0 11px rgba(20,33,61,.08),0 40px 80px -30px rgba(20,33,61,.45)}
 }
+@media (max-width:380px){.pdp-block{padding:18px 16px}.pdp-btn{padding:0 12px;font-size:15px;letter-spacing:-0.015em}}
+@media (max-width:340px){.pdp-btn{font-size:14px;padding:0 10px}.pdp-block .seal-privacy{font-size:12px;padding:5px 10px}}
 `;
